@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public void Construct(IInputService input)
     {
         _input = input;
+        Debug.Log($"IInput{_input}");
     }
 
     private void Start()

@@ -1,101 +1,112 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class MobileInputSystem : IInputService
 {
-    private PlayerInput _playerInput;
     private Vector2 _startTouchPosition;
     private Vector2 _endTouchPosition;
-    private bool _isSwipe;
-    private float _swipeThreshold;
+    private float _swipeThreshold = 50f;
+    private Swipe _currentSwipe = Swipe.None;
 
-    public MobileInputSystem(float swipeThreshold)
-    {
-        _swipeThreshold = swipeThreshold;
-        SubscribeToInputEvents();
-    }
+    private InputAction _positionAction;
+    private InputAction _pressAction;
+    private PlayerInput _playerInput;
 
-    private void SubscribeToInputEvents()
+    private float _lastInputTime;
+    private float _inputCooldown = 0.1f;
+    public MobileInputSystem()
     {
         _playerInput = new PlayerInput();
-        _playerInput.GameplayInput.Touch.performed += OnTouchStarted;
-        _playerInput.GameplayInput.Touch.canceled += OnTouchCanceled;
+
+        _positionAction = _playerInput.GameplayInput.Position;
+        _pressAction = _playerInput.GameplayInput.Press;
+
+        _pressAction.started += OnStartTouch;
+        _pressAction.canceled += OnCanceledTouch;
+
         _playerInput.Enable();
-    }
-
-    private void OnTouchStarted(InputAction.CallbackContext context)
-    {
-        // Начало касания
-        _startTouchPosition = context.ReadValue<Vector2>();
-        _isSwipe = true;
-        Debug.Log("Touch Started");
-    }
-
-    private void OnTouchCanceled(InputAction.CallbackContext context)
-    {
-        // Окончание касания
-        if (_isSwipe)
-        {
-            _endTouchPosition = context.ReadValue<Vector2>();
-            DetectSwipe();
-            _isSwipe = false;
-        }
-        Debug.Log("Touch Canceled");
-    }
-
-    private void DetectSwipe()
-    {
-        Debug.Log("Detected swipe");
-        Vector2 swipeVector = _endTouchPosition - _startTouchPosition;
-        if (swipeVector.magnitude >= _swipeThreshold)
-        {
-            Vector2 swipeDirection = swipeVector.normalized;
-
-            if (Mathf.Abs(swipeDirection.x) > Mathf.Abs(swipeDirection.y))
-            {
-                if (swipeDirection.x > 0)
-                {
-                    Debug.Log("Right Swipe Detected");
-                }
-                else
-                {
-                    Debug.Log("Left Swipe Detected");
-                }
-            }
-            else
-            {
-                if (swipeDirection.y > 0)
-                {
-                    Debug.Log("Jump Swipe Detected");
-                }
-                else
-                {
-                    Debug.Log("Squat Swipe Detected");
-                }
-            }
-        }
+        _pressAction.Enable();
+        _playerInput.Enable();
     }
 
     public bool IsRightMove()
     {
-        return _endTouchPosition.x - _startTouchPosition.x > _swipeThreshold;
+
+        return IsChangeMoveOnTime(Swipe.Right);
     }
 
     public bool IsLeftMove()
     {
-        return _startTouchPosition.x - _endTouchPosition.x > _swipeThreshold;
+        return IsChangeMoveOnTime(Swipe.Left);
     }
 
     public bool IsJumpMove()
     {
-        return _endTouchPosition.y - _startTouchPosition.y > _swipeThreshold;
+        return IsChangeMoveOnTime(Swipe.Up);
     }
 
     public bool IsSquatMove()
     {
-        return _startTouchPosition.y - _endTouchPosition.y > _swipeThreshold;
+        return IsChangeMoveOnTime(Swipe.Down);
+    }
+
+    private void OnStartTouch(InputAction.CallbackContext context)
+    {
+        Vector2 touchPosition = _positionAction.ReadValue<Vector2>();
+        _startTouchPosition = touchPosition;
+    }
+    private void OnCanceledTouch(InputAction.CallbackContext context)
+    {
+        Vector2 touchPosition = _positionAction.ReadValue<Vector2>();
+        _endTouchPosition = touchPosition;
+        _currentSwipe = SwipeDirection();
+    }
+
+    private bool IsChangeMoveOnTime(Swipe swipe)
+    {
+        bool changePos = false;
+        if (CanPerformAction() && _currentSwipe == swipe)
+        {
+            if (SwipeDirection() == swipe)
+            {
+                _lastInputTime = Time.time;
+                changePos = true;
+                _currentSwipe = Swipe.None;
+            }
+        }
+        return changePos;
+    }
+
+    private bool CanPerformAction()
+    {
+        return Time.time >= _lastInputTime + _inputCooldown;
+    }
+
+    private Swipe SwipeDirection()
+    {
+
+        Vector2 swipeVector = _endTouchPosition - _startTouchPosition;
+
+        if (swipeVector.magnitude >= _swipeThreshold)
+        {
+            if (Mathf.Abs(swipeVector.x) > Mathf.Abs(swipeVector.y))
+            {
+                return swipeVector.x > 0 ? Swipe.Right : Swipe.Left;
+            }
+            else
+            {
+                return swipeVector.y > 0 ? Swipe.Up : Swipe.Down;
+            }
+        }
+        return Swipe.None;
+    }
+
+    private enum Swipe
+    {
+        None,
+        Left,
+        Right,
+        Up,
+        Down
     }
 }

@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 public class PCInputSystem : IInputService
 {
+    private float _vectorDifference = 0.5f;
     private PlayerInput _playerInput;
     private InputAction _moveAction;
 
@@ -11,6 +12,7 @@ public class PCInputSystem : IInputService
 
     public PCInputSystem()
     {
+        Debug.Log("Construct");
         SubscribeToInputEvents();
     }
 
@@ -32,7 +34,7 @@ public class PCInputSystem : IInputService
         if (CanPerformAction())
         {
             Vector2 move = _moveAction.ReadValue<Vector2>();
-            if (move.y > 0.5f)
+            if (move.y > _vectorDifference)
             {
                 _lastInputTime = Time.time;
                 changePos = true;
@@ -47,7 +49,7 @@ public class PCInputSystem : IInputService
         if (CanPerformAction())
         {
             Vector2 move = _moveAction.ReadValue<Vector2>();
-            if (move.x < -0.5f)
+            if (move.x < -_vectorDifference)
             {
                 _lastInputTime = Time.time;
                 changePos = true;
@@ -62,7 +64,7 @@ public class PCInputSystem : IInputService
         if (CanPerformAction())
         {
             Vector2 move = _moveAction.ReadValue<Vector2>();
-            if (move.x > 0.5f)
+            if (move.x > _vectorDifference)
             {
                 _lastInputTime = Time.time;
                 changePos = true;
@@ -77,7 +79,7 @@ public class PCInputSystem : IInputService
         if (CanPerformAction())
         {
             Vector2 move = _moveAction.ReadValue<Vector2>();
-            if (move.y < -0.5f)
+            if (move.y < -_vectorDifference)
             {
                 _lastInputTime = Time.time;
                 changePos = true;

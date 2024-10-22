@@ -13,7 +13,7 @@ public class ProjectContextInstallers : MonoInstaller
     private void BindInputServices()
     {
         Debug.Log("Bind");
-        if (Application.isMobilePlatform)
+        if (Application.isEditor)
         {
             Container.Bind<IInputService>().To<MobileInputSystem>().AsSingle();
         }
