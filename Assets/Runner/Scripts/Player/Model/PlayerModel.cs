@@ -14,6 +14,9 @@ public class PlayerModel
     private Rigidbody _rigidbodyPlayer;
     private Transform _playerTransform;
 
+    private int _currentLane = 0;
+    private float _laneDistance = 2.5f;
+
     public PlayerModel(Rigidbody rigidbodyPlayer, Transform playerTransform)
     {
         _rigidbodyPlayer = rigidbodyPlayer;
@@ -46,11 +49,20 @@ public class PlayerModel
 
     public void MoveLeft()
     {
-        throw new NotImplementedException();
+        Vector3 targetPosition = _rigidbodyPlayer.position + new Vector3(-_laneDistance, 0, 0);
+        _rigidbodyPlayer.MovePosition(targetPosition);
     }
 
     public void MoveRight()
     {
-        throw new NotImplementedException();
+        Vector3 targetPosition = _rigidbodyPlayer.position + new Vector3(_laneDistance, 0, 0);
+        _rigidbodyPlayer.MovePosition(targetPosition);
+    }
+    
+    public void MoveCenter()
+    {
+        Vector3 targetPosition = _rigidbodyPlayer.position;
+        targetPosition.x = 0;
+        _rigidbodyPlayer.MovePosition(targetPosition);
     }
 }

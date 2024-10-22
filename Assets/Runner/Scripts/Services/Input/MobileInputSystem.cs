@@ -13,7 +13,7 @@ public class MobileInputSystem : IInputService
     private PlayerInput _playerInput;
 
     private float _lastInputTime;
-    private float _inputCooldown = 0.1f;
+    private float _inputCooldown = 0.5f;
     public MobileInputSystem()
     {
         _playerInput = new PlayerInput();

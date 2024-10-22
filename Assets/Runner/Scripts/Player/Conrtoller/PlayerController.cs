@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour
     private PlayerModel _playerModel;
     private PlayerView _playerView;
     private Rigidbody _rigidbodyPlayer;
+    private IPlayerStateMachine _playerStateMachine;
+
+    private Dictionary<Type, IPlayerState> _playerStates;
 
     [Inject]
     public void Construct(IInputService input)
@@ -23,6 +26,15 @@ public class PlayerController : MonoBehaviour
         _playerView = GetComponent<PlayerView>();
         _rigidbodyPlayer = GetComponent<Rigidbody>();
         _playerModel = new PlayerModel(_rigidbodyPlayer, transform);
+
+        _playerStateMachine = new PlayerStateMachine();
+        _playerStates = new Dictionary<Type, IPlayerState>();
+        _playerStates[typeof(CenterSideState)] = new CenterSideState(_playerModel, _playerView);
+        _playerStates[typeof(RightSideState)] = new RightSideState(_playerModel, _playerView);
+        _playerStates[typeof(LeftSideState)] = new LeftSideState(_playerModel, _playerView);
+        //_playerStates[typeof(CenterSideState)] = new CenterSideState(_playerModel, _playerView);
+
+        _playerStateMachine.Initialize(_playerStates[typeof(CenterSideState)]);
     }
 
     private void Update()
@@ -35,30 +47,35 @@ public class PlayerController : MonoBehaviour
 
     private void HandleInput()
     {
-        if (_input.IsJumpMove())
+        if (_input.IsRightMove())
         {
-            Debug.Log("Jump");
-            _playerModel.Jump();
-            _playerView.PlayJumpAnimation();
+            if (_playerStateMachine.CurrentState == _playerStates[typeof(CenterSideState)])
+            {
+                _playerStateMachine.ChangeState(_playerStates[typeof(RightSideState)]);
+            }
+            else if (_playerStateMachine.CurrentState == _playerStates[typeof(LeftSideState)])
+            {
+                _playerStateMachine.ChangeState(_playerStates[typeof(CenterSideState)]);
+            }
+            else if (_playerStateMachine.CurrentState == _playerStates[typeof(RightSideState)])
+            {
+                Debug.Log("Already in RightSideState");
+            }
         }
-        else if(_input.IsSquatMove())
+        else if (_input.IsLeftMove())
         {
-            Debug.Log("Squat");
-            _playerModel.Squat();
-            _playerView.PlaySquatAnimation();
-        }
-        else if(_input.IsLeftMove())
-        {
-            Debug.Log("Left");
-            _playerModel.MoveLeft();
-            _playerView.PlayMoveLeftAnimation();
-        }
-        else if(_input.IsRightMove())
-        {
-            Debug.Log("Right");
-            _playerModel.MoveRight();
-            _playerView.PlayMoveRightAnimation();
-
+            if (_playerStateMachine.CurrentState == _playerStates[typeof(CenterSideState)])
+            {
+                _playerStateMachine.ChangeState(_playerStates[typeof(LeftSideState)]);
+            }
+            else if (_playerStateMachine.CurrentState == _playerStates[typeof(RightSideState)])
+            {
+                _playerStateMachine.ChangeState(_playerStates[typeof(CenterSideState)]);
+            }
+            else if (_playerStateMachine.CurrentState == _playerStates[typeof(LeftSideState)])
+            {
+                Debug.Log("Already in LeftSideState");
+            }
         }
     }
 
