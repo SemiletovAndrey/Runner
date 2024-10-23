@@ -7,13 +7,15 @@ public class LeftSideState : IPlayerState
 {
     private PlayerModel _playerModel;
     private IPlayerStateMachine _playerStateMachine;
+    private PlayerView _playerView;
 
 
     [Inject]
-    public LeftSideState(PlayerModel playerModel, IPlayerStateMachine playerStateMachine)
+    public LeftSideState(PlayerModel playerModel, IPlayerStateMachine playerStateMachine, PlayerView playerView)
     {
         _playerModel = playerModel;
         _playerStateMachine = playerStateMachine;
+        _playerView = playerView;
     }
 
     public void Enter()
@@ -30,6 +32,12 @@ public class LeftSideState : IPlayerState
     public void Exit()
     {
         Debug.Log("Exit Left State");
+        _playerStateMachine.PreviousState = this;
+    }
+
+    public void ReturnState()
+    {
+        _playerView.PlayRunAnimation();
         _playerStateMachine.PreviousState = this;
     }
 }

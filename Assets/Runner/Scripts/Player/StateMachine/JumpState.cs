@@ -24,8 +24,13 @@ public class JumpState : IPlayerState
         Debug.Log("Exit Jump State");
     }
 
-    public void Update()
+    public void ReturnState()
     {
         
+    }
+
+    public void Update()
+    {
+        _playerModel.MoveForward();
     }
 }

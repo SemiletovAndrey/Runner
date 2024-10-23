@@ -33,4 +33,9 @@ public class CenterSideState : IPlayerState
         _playerStateMachine.PreviousState = this;
     }
 
+    public void ReturnState()
+    {
+        _playerView.PlayRunAnimation();
+        _playerStateMachine.PreviousState = this;
+    }
 }

@@ -10,6 +10,11 @@ public class DeathState : IPlayerState
         throw new System.NotImplementedException();
     }
 
+    public void ReturnState()
+    {
+        throw new System.NotImplementedException();
+    }
+
     public void Update()
     {
         throw new System.NotImplementedException();

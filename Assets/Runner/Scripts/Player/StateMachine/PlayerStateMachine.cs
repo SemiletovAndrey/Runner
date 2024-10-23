@@ -33,7 +33,7 @@ public class PlayerStateMachine : IPlayerStateMachine, IInitializable
     public void Initialize()
     {
         InitializeStates();
-        _currentState = _playerStates[typeof(IdleState)];
+        _currentState = _playerStates[typeof(CenterSideState)];
         _currentState.Enter();
     }
 
@@ -51,7 +51,17 @@ public class PlayerStateMachine : IPlayerStateMachine, IInitializable
     {
         if (_previousState != null)
         {
-            ChangeState(_previousState);
+            ReturnState(_previousState);
+        }
+    }
+
+    private void ReturnState(IPlayerState previousState)
+    {
+        if (_currentState != previousState)
+        {
+            _currentState.Exit();
+            _currentState = previousState;
+            _currentState.ReturnState();
         }
     }
 

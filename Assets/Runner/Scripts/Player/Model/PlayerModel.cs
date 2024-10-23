@@ -52,14 +52,14 @@ public class PlayerModel
     {
         AllColliderOff();
         JumpColliderOn();
-        _rigidbodyPlayer.isKinematic = true;
+        _rigidbodyPlayer.useGravity = false;
         CanJump = false;
     }
 
     public void EndJump()
     {
         JumpColliderOff();
-        _rigidbodyPlayer.isKinematic = false;
+        _rigidbodyPlayer.useGravity = true;
         _playerStateMachine.RevertToPreviousState();
         CanJump = true;
         CanSlide = true;
@@ -69,13 +69,13 @@ public class PlayerModel
     {
         AllColliderOff();
         SlideColliderOn();
-        _rigidbodyPlayer.isKinematic = true;
+        _rigidbodyPlayer.useGravity = false;
         CanSlide = false;
     }
     public void EndSlide()
     {
         SlideColliderOff();
-        _rigidbodyPlayer.isKinematic = false;
+        _rigidbodyPlayer.useGravity = true;
         _playerStateMachine.RevertToPreviousState();
         CanSlide = true;
         CanJump = true;

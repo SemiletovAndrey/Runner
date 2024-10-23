@@ -26,8 +26,12 @@ public class SlideState : IPlayerState
         Debug.Log("Exit Jump State");
     }
 
+    public void ReturnState()
+    {
+    }
+
     public void Update()
     {
-        
+        _playerModel.MoveForward();
     }
 }

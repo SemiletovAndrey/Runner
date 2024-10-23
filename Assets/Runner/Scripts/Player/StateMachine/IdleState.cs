@@ -27,8 +27,13 @@ public class IdleState : IPlayerState
         _playerStateMachine.ChangeState(_playerStateMachine.GetState<CenterSideState>());
     }
 
+    public void ReturnState()
+    {
+        
+    }
+
     public void Update()
     {
-
+        _playerModel.MoveForward();
     }
 }
