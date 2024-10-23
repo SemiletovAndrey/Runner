@@ -81495,10 +81495,10 @@ AnimationClip:
   m_HasGenericRootTransform: 1
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 1.0666667
-    functionName: StopSliding
+  - time: 1.1
+    functionName: EndAnimationSlide
     data: 
-    objectReferenceParameter: {fileID: 2760091683494920684, guid: e19994782fbf97940896842391bafe1d, type: 3}
+    objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0

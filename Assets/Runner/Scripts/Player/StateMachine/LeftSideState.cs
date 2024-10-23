@@ -1,31 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public class LeftSideState : IPlayerState
 {
     private PlayerModel _playerModel;
-    private PlayerView _playerView;
+    private IPlayerStateMachine _playerStateMachine;
 
-    public LeftSideState(PlayerModel playerModel, PlayerView playerView)
+
+    [Inject]
+    public LeftSideState(PlayerModel playerModel, IPlayerStateMachine playerStateMachine)
     {
         _playerModel = playerModel;
-        _playerView = playerView;
+        _playerStateMachine = playerStateMachine;
     }
 
     public void Enter()
     {
         Debug.Log("Enter Left State");
         _playerModel.MoveLeft();
+        _playerStateMachine.PreviousState = this;
     }
     public void Update()
     {
         _playerModel.MoveForward();
-        //_playerView.PlayIdleAnimation();
     }
 
     public void Exit()
     {
         Debug.Log("Exit Left State");
+        _playerStateMachine.PreviousState = this;
     }
 }

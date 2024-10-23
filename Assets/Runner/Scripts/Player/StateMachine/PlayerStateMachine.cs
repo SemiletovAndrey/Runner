@@ -2,16 +2,38 @@ using System;
 using System.Collections.Generic;
 using Zenject;
 
-public class PlayerStateMachine : IPlayerStateMachine
+public class PlayerStateMachine : IPlayerStateMachine, IInitializable
 {
     private IPlayerState _currentState;
     private IPlayerState _previousState;
+    private IPlayerStateFactory _playerStateFactory;
+
+    private Dictionary<Type, IPlayerState> _playerStates = new Dictionary<Type, IPlayerState>();
 
     public IPlayerState CurrentState {  get { return _currentState; } }
+    public IPlayerState PreviousState {  get { return _currentState; }
+        set { _previousState = value; }}
 
-    public void Initialize(IPlayerState startingState)
+    public PlayerStateMachine(IPlayerStateFactory playerStateFactory)
     {
-        _currentState = startingState;
+        _playerStateFactory = playerStateFactory;
+    }
+
+    public void InitializeStates()
+    {
+        _playerStates[typeof(IdleState)] = _playerStateFactory.CreateTState<IdleState>();
+        _playerStates[typeof(CenterSideState)] = _playerStateFactory.CreateTState<CenterSideState>();
+        _playerStates[typeof(RightSideState)] = _playerStateFactory.CreateTState<RightSideState>();
+        _playerStates[typeof(LeftSideState)] = _playerStateFactory.CreateTState<LeftSideState>();
+        _playerStates[typeof(JumpState)] = _playerStateFactory.CreateTState<JumpState>();
+        _playerStates[typeof(SlideState)] = _playerStateFactory.CreateTState<SlideState>();
+        _playerStates[typeof(DeathState)] = _playerStateFactory.CreateTState<DeathState>();
+    }
+
+    public void Initialize()
+    {
+        InitializeStates();
+        _currentState = _playerStates[typeof(IdleState)];
         _currentState.Enter();
     }
 
@@ -20,7 +42,6 @@ public class PlayerStateMachine : IPlayerStateMachine
         if (_currentState != newState)
         {
             _currentState.Exit();
-            _previousState = _currentState;
             _currentState = newState;
             _currentState.Enter();
         }
@@ -34,9 +55,13 @@ public class PlayerStateMachine : IPlayerStateMachine
         }
     }
 
-
     public void Update()
     {
         _currentState.Update();
+    }
+
+    public TState GetState<TState>() where TState : class, IPlayerState
+    {
+        return _playerStates[typeof(TState)] as TState;
     }
 }

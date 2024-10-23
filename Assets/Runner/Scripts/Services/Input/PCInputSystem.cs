@@ -8,7 +8,7 @@ public class PCInputSystem : IInputService
     private InputAction _moveAction;
 
     private float _lastInputTime;
-    private float _inputCooldown = 0.5f;
+    private float _inputCooldown = 0.3f;
 
     public PCInputSystem()
     {

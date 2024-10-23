@@ -126963,10 +126963,10 @@ AnimationClip:
   m_HasGenericRootTransform: 1
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 1.2666667
-    functionName: StopJumping
+  - time: 1.3333334
+    functionName: EndAnimationJump
     data: 
-    objectReferenceParameter: {fileID: 2760091683494920684, guid: e19994782fbf97940896842391bafe1d, type: 3}
+    objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0

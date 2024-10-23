@@ -9,18 +9,17 @@ public class ProjectContextInstallers : MonoInstaller
     {
         BindInputServices();
 
-        Container.BindInterfacesAndSelfTo<PlayerStateMachine>().AsSingle();
     }
 
     private void BindInputServices()
     {
-        if (Application.isEditor)
+        if (Application.isMobilePlatform)
         {
-            Container.Bind<IInputService>().To<PCInputSystem>().AsSingle();
+            Container.Bind<IInputService>().To<MobileInputSystem>().AsSingle();
         }
         else
         {
-            Container.Bind<IInputService>().To<MobileInputSystem>().AsSingle();
+            Container.Bind<IInputService>().To<PCInputSystem>().AsSingle();
         }
     }
 

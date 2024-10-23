@@ -1,21 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public class SlideState : IPlayerState
 {
+    private PlayerModel _playerModel;
+    private PlayerView _playerView;
+
+    [Inject]
+    public SlideState(PlayerModel playerModel, PlayerView playerView)
+    {
+        _playerModel = playerModel;
+        _playerView = playerView;
+    }
     public void Enter()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Enter Slide State");
+        _playerModel.StartSlide();
+        _playerView.PlaySlideAnimation();
     }
 
     public void Exit()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Exit Jump State");
     }
 
     public void Update()
     {
-        throw new System.NotImplementedException();
+        
     }
 }
