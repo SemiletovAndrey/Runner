@@ -5,7 +5,7 @@ public class PlayerModel
     public bool IsAlive { get; set; } = true;
     public Vector3 Position { get; internal set; }
     public float Speed { get; set; } = 5f;
-    public int Score {  get; set; }
+    public int Score { get; set; }
 
     public bool CanJump { get; private set; } = true;
     public bool CanSlide { get; private set; } = true;
@@ -23,6 +23,7 @@ public class PlayerModel
 
     private int _currentLane = 0;
     private float _laneDistance = 2.5f;
+    private CurrentLine _currentLine;
 
     public PlayerModel(Rigidbody rigidbodyPlayer, Transform playerTransform, Collider centerCollider, Collider jumpCollider, Collider slideCollider, IPlayerStateMachine playerStateMachine)
     {
@@ -84,17 +85,41 @@ public class PlayerModel
     public void MoveLeft()
     {
         Vector3 targetPosition = _rigidbodyPlayer.position + new Vector3(-_laneDistance, 0, 0);
-        _rigidbodyPlayer.MovePosition(targetPosition);
-        _currentLane--;
+        if (CanJump)
+        {
+            if (!(_currentLine == CurrentLine.Left) && !Physics.Raycast(_rigidbodyPlayer.position, Vector3.left, _laneDistance))
+            {
+                _rigidbodyPlayer.MovePosition(targetPosition);
+                _currentLane--;
+                _currentLine = (CurrentLine)_currentLane;
+
+                if (_currentLine == CurrentLine.Center)
+                    _playerStateMachine.ChangeState(_playerStateMachine.GetState<CenterSideState>());
+                if (_currentLine == CurrentLine.Left)
+                    _playerStateMachine.ChangeState(_playerStateMachine.GetState<LeftSideState>());
+            }
+        }
     }
 
     public void MoveRight()
     {
         Vector3 targetPosition = _rigidbodyPlayer.position + new Vector3(_laneDistance, 0, 0);
-        _rigidbodyPlayer.MovePosition(targetPosition);
-        _currentLane++;
+        if (CanJump)
+        {
+            if (!(_currentLine == CurrentLine.Right) && !Physics.Raycast(_rigidbodyPlayer.position, Vector3.right, _laneDistance))
+            {
+                _rigidbodyPlayer.MovePosition(targetPosition);
+                _currentLane++;
+                _currentLine = (CurrentLine)_currentLane;
+
+                if (_currentLine == CurrentLine.Center)
+                    _playerStateMachine.ChangeState(_playerStateMachine.GetState<CenterSideState>());
+                if (_currentLine == CurrentLine.Right)
+                    _playerStateMachine.ChangeState(_playerStateMachine.GetState<RightSideState>());
+            }
+        }
     }
-    
+
     public void MoveCenter()
     {
         Vector3 targetPosition = _rigidbodyPlayer.position;
@@ -129,5 +154,12 @@ public class PlayerModel
         _slideCollider.enabled = false;
         _centerCollider.enabled = false;
         _jumpCollider.enabled = false;
+    }
+
+    public enum CurrentLine
+    {
+        Left = -1,
+        Center = 0,
+        Right = 1
     }
 }

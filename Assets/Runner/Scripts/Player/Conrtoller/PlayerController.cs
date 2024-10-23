@@ -26,22 +26,31 @@ public class PlayerController : MonoBehaviour
 
     private void HandleInput()
     {
-        if (_input.IsRightMove())
-        {
-            RightMovehandler();
-        }
-        else if (_input.IsLeftMove())
-        {
-            LeftMoveHandler();
+        RightLeftHandler();
+        JumpSlideHandler();
+    }
 
-        }
-        else if (_input.IsJumpMove() && _playerModel.CanJump)
+    private void JumpSlideHandler()
+    {
+        if (_input.IsJumpMove() && _playerModel.CanJump)
         {
             JumpHandler();
         }
         else if (_input.IsSquatMove() && _playerModel.CanSlide)
         {
             SlideHandler();
+        }
+    }
+
+    private void RightLeftHandler()
+    {
+        if (_input.IsRightMove())
+        {
+            _playerModel.MoveRight();
+        }
+        else if (_input.IsLeftMove())
+        {
+            _playerModel.MoveLeft();
         }
     }
 
@@ -66,21 +75,5 @@ public class PlayerController : MonoBehaviour
     {
         if (_playerStateMachine.CurrentState != _playerStateMachine.GetState<JumpState>())
             _playerStateMachine.ChangeState(_playerStateMachine.GetState<JumpState>());
-    }
-
-    private void LeftMoveHandler()
-    {
-        if (_playerStateMachine.CurrentState == _playerStateMachine.GetState<CenterSideState>())
-            _playerStateMachine.ChangeState(_playerStateMachine.GetState<LeftSideState>());
-        else if (_playerStateMachine.CurrentState == _playerStateMachine.GetState<RightSideState>())
-            _playerStateMachine.ChangeState(_playerStateMachine.GetState<CenterSideState>());
-    }
-
-    private void RightMovehandler()
-    {
-        if (_playerStateMachine.CurrentState == _playerStateMachine.GetState<CenterSideState>())
-            _playerStateMachine.ChangeState(_playerStateMachine.GetState<RightSideState>());
-        else if (_playerStateMachine.CurrentState == _playerStateMachine.GetState<LeftSideState>())
-            _playerStateMachine.ChangeState(_playerStateMachine.GetState<CenterSideState>());
     }
 }

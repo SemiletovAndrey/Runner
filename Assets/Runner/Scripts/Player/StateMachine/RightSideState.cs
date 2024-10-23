@@ -20,7 +20,6 @@ public class RightSideState : IPlayerState
     public void Enter()
     {
         Debug.Log("Enter Right State");
-        _playerModel.MoveRight();
         _playerStateMachine.PreviousState = this;
     }
     public void Update()
