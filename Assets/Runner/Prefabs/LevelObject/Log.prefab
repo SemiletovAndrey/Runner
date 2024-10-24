@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5858820385197388800}
   - component: {fileID: 3642212208013379666}
   - component: {fileID: 1396149773019957578}
-  - component: {fileID: 2673364259555169864}
   m_Layer: 0
   m_Name: Stump_01_LOD0
   m_TagString: Untagged
@@ -84,27 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2673364259555169864
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 507899916782243505}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.45, y: 0.8131511, z: 0.45}
-  m_Center: {x: 0, y: 0.4065755, z: 0}
 --- !u!1 &755072669734837903
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,8 +143,8 @@ Transform:
   m_GameObject: {fileID: 1107988672050168199}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.1566429, y: -0.05, z: -0.052000046}
-  m_LocalScale: {x: 1, y: 3, z: 1}
+  m_LocalPosition: {x: -1.5, y: -0.05, z: -0.052000046}
+  m_LocalScale: {x: 1, y: 3, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5497700512790280424}
@@ -222,8 +200,8 @@ Transform:
   m_GameObject: {fileID: 1653519964638234549}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.1679139, y: -0.05, z: -0.052000046}
-  m_LocalScale: {x: 1, y: 3, z: 1}
+  m_LocalPosition: {x: 1.5, y: -0.05, z: -0.052000046}
+  m_LocalScale: {x: 1, y: 3, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5858820385197388800}
@@ -364,8 +342,8 @@ Transform:
   m_GameObject: {fileID: 4300269251613725445}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.95, z: 0}
-  m_LocalScale: {x: 3.5, y: 7, z: 5}
+  m_LocalPosition: {x: 0, y: 2.3, z: 0}
+  m_LocalScale: {x: 4, y: 15, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4712121826744828951}
@@ -567,7 +545,6 @@ GameObject:
   - component: {fileID: 5497700512790280424}
   - component: {fileID: 7440277971837015780}
   - component: {fileID: 4021779342497028778}
-  - component: {fileID: 2075644425866607504}
   m_Layer: 0
   m_Name: Stump_01_LOD0
   m_TagString: Untagged
@@ -640,24 +617,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2075644425866607504
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6626995655312477855}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.45, y: 0.8131511, z: 0.45}
-  m_Center: {x: 0, y: 0.4065755, z: 0}

@@ -18,7 +18,6 @@ public class CenterSideState : IPlayerState
     public void Enter()
     {
         Debug.Log("Enter Center State");
-        _playerModel.MoveCenter();
         _playerView.PlayRunAnimation();
         _playerStateMachine.PreviousState = this;
     }

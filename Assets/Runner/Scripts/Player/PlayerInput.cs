@@ -42,7 +42,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""id"": ""0b84e1bc-e6b3-4c2e-852d-4f1e83398b14"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""initialStateCheck"": true
                 },
                 {
@@ -60,7 +60,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""name"": ""Keyboard"",
                     ""id"": ""d57738a8-eb81-4379-b21d-a585cf7c74be"",
                     ""path"": ""2DVector"",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""PC"",
@@ -115,7 +115,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""name"": ""Arrows"",
                     ""id"": ""395d4aed-666a-43bd-9b5f-79073883f5ab"",
                     ""path"": ""2DVector"",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""PC"",

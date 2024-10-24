@@ -27,5 +27,7 @@ public class PlayerSceneContext : MonoInstaller
         Container.Bind<PlayerView>()
             .AsSingle()
             .WithArguments(_animatorPlayer);
+
+        Container.Bind<Transform>().WithId("PlayerTransform").FromInstance(_playerTransform);
     }
 }

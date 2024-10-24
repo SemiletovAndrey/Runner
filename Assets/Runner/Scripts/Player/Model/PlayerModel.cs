@@ -120,14 +120,6 @@ public class PlayerModel
         }
     }
 
-    public void MoveCenter()
-    {
-        Vector3 targetPosition = _rigidbodyPlayer.position;
-        targetPosition.x = 0;
-        _rigidbodyPlayer.MovePosition(targetPosition);
-        _currentLane = 0;
-    }
-
     private void JumpColliderOn()
     {
         _jumpCollider.enabled = true;
