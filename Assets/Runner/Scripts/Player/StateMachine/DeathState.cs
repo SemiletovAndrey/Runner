@@ -1,22 +1,34 @@
+using UnityEngine;
+using Zenject;
+
 public class DeathState : IPlayerState
 {
+    private PlayerModel _playerModel;
+    private PlayerView _playerView;
+
+    [Inject]
+    public DeathState(PlayerModel playerModel, PlayerView playerView)
+    {
+        _playerModel = playerModel;
+        _playerView = playerView;
+    }
+
     public void Enter()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Enter death State");
+        _playerView.StopAnimations();
     }
 
     public void Exit()
     {
-        throw new System.NotImplementedException();
     }
 
     public void ReturnState()
     {
-        throw new System.NotImplementedException();
     }
 
     public void Update()
     {
-        throw new System.NotImplementedException();
+        
     }
 }

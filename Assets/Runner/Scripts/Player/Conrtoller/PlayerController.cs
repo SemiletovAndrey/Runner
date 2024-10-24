@@ -6,15 +6,17 @@ public class PlayerController : MonoBehaviour
     private IInputService _input;
     private PlayerModel _playerModel;
     private IPlayerStateMachine _playerStateMachine;
+    private IUIService _uiService;
 
     public PlayerModel PlayerModel {  get { return _playerModel; } }
 
     [Inject]
-    public void Construct(IInputService input,PlayerModel playerModel, IPlayerStateMachine playerStateMachine)
+    public void Construct(IInputService input,PlayerModel playerModel, IPlayerStateMachine playerStateMachine, IUIService uiService)
     {
         _input = input;
         _playerModel = playerModel;
         _playerStateMachine = playerStateMachine;
+        _uiService = uiService;
     }
 
     private void Update()
@@ -28,7 +30,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
         {
-            EndGame(); // Вызов метода для завершения игры
+            EndGame();
         }
     }
 
@@ -88,6 +90,7 @@ public class PlayerController : MonoBehaviour
     private void EndGame()
     {
         Debug.Log("GameOver");
-        Time.timeScale = 0;
+        _playerStateMachine.ChangeState(_playerStateMachine.GetState<DeathState>());
+        _uiService.ShowDeathUI();
     }
 }

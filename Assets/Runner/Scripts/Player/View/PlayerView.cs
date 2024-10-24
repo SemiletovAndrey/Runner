@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerView
@@ -41,4 +42,9 @@ public class PlayerView
     private void PlaySlide() => _animator.SetTrigger(_slideHash);
 
     private void PlayIdle() => _animator.SetTrigger(_idleHash);
+
+    internal void StopAnimations()
+    {
+        _animator.enabled = false;
+    }
 }
