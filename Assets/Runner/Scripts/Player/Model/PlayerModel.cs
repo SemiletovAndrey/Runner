@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerModel
@@ -46,7 +47,12 @@ public class PlayerModel
     public void MoveForward()
     {
         Vector3 moveDirection = _playerTransform.forward * Speed * Time.deltaTime;
-        _rigidbodyPlayer.MovePosition(_rigidbodyPlayer.position + moveDirection);
+        RaycastHit hit;
+
+        if (!Physics.Raycast(_rigidbodyPlayer.position, moveDirection, out hit, moveDirection.magnitude))
+        {
+            _rigidbodyPlayer.MovePosition(_rigidbodyPlayer.position + moveDirection);
+        }
     }
 
     public void StartJump()
@@ -120,21 +126,44 @@ public class PlayerModel
         }
     }
 
+    public void AlignmentPlayerPosition()
+    {
+        switch(_currentLine)
+        {
+            case CurrentLine.Left:
+                Vector3 alignmentPosLeft = new Vector3(-_laneDistance, _rigidbodyPlayer.position.y, _rigidbodyPlayer.position.z);
+                _rigidbodyPlayer.MovePosition(alignmentPosLeft);
+                break;
+            case CurrentLine.Center:
+                Vector3 alignmentPosCenter = new Vector3(0, _rigidbodyPlayer.position.y, _rigidbodyPlayer.position.z);
+                _rigidbodyPlayer.MovePosition(alignmentPosCenter);
+                break;
+            case CurrentLine.Right:
+                Vector3 alignmentPosRight = new Vector3(_laneDistance, _rigidbodyPlayer.position.y, _rigidbodyPlayer.position.z);
+                _rigidbodyPlayer.MovePosition(alignmentPosRight);
+                break;
+        }
+    }
+
+
     private void JumpColliderOn()
     {
         _jumpCollider.enabled = true;
         _centerCollider.enabled = false;
     }
+
     private void JumpColliderOff()
     {
         _jumpCollider.enabled = false;
         _centerCollider.enabled = true;
     }
+
     private void SlideColliderOn()
     {
         _slideCollider.enabled = true;
         _centerCollider.enabled = false;
     }
+
     private void SlideColliderOff()
     {
         _slideCollider.enabled = false;

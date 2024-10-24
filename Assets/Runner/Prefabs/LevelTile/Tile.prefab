@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6436148410139178728
 Transform:
@@ -115,7 +115,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2134468723696491394
 Transform:
@@ -212,9 +212,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6436148410139178728}
     m_Modifications:
+    - target: {fileID: 597265240221650911, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585028791897018303, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_Name
       value: Spruce (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350763060559339830, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 9111942056348694522, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_LocalPosition.x
@@ -274,9 +290,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6436148410139178728}
     m_Modifications:
+    - target: {fileID: 597265240221650911, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585028791897018303, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_Name
       value: Spruce (30)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350763060559339830, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 9111942056348694522, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_LocalPosition.x
@@ -336,9 +368,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6436148410139178728}
     m_Modifications:
+    - target: {fileID: 597265240221650911, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585028791897018303, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_Name
       value: Spruce (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350763060559339830, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 9111942056348694522, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_LocalPosition.x
@@ -398,9 +446,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6436148410139178728}
     m_Modifications:
+    - target: {fileID: 597265240221650911, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585028791897018303, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_Name
       value: Spruce (29)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350763060559339830, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 9111942056348694522, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_LocalPosition.x
@@ -460,9 +524,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6436148410139178728}
     m_Modifications:
+    - target: {fileID: 597265240221650911, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585028791897018303, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_Name
       value: Spruce (43)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350763060559339830, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 9111942056348694522, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_LocalPosition.x
@@ -522,9 +602,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6436148410139178728}
     m_Modifications:
+    - target: {fileID: 597265240221650911, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585028791897018303, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_Name
       value: Spruce (56)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350763060559339830, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 9111942056348694522, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_LocalPosition.x
@@ -584,9 +680,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6436148410139178728}
     m_Modifications:
+    - target: {fileID: 597265240221650911, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585028791897018303, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_Name
       value: Spruce (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350763060559339830, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 9111942056348694522, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_LocalPosition.x
@@ -646,9 +758,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6436148410139178728}
     m_Modifications:
+    - target: {fileID: 597265240221650911, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585028791897018303, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_Name
       value: Spruce (39)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350763060559339830, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 9111942056348694522, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_LocalPosition.x
@@ -708,9 +836,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6436148410139178728}
     m_Modifications:
+    - target: {fileID: 597265240221650911, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585028791897018303, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_Name
       value: Spruce (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350763060559339830, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 9111942056348694522, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_LocalPosition.x
@@ -770,9 +914,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6436148410139178728}
     m_Modifications:
+    - target: {fileID: 597265240221650911, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585028791897018303, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_Name
       value: Spruce (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350763060559339830, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 9111942056348694522, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_LocalPosition.x
@@ -832,9 +992,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6436148410139178728}
     m_Modifications:
+    - target: {fileID: 597265240221650911, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585028791897018303, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_Name
       value: Spruce (38)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350763060559339830, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 9111942056348694522, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_LocalPosition.x
@@ -894,9 +1070,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6436148410139178728}
     m_Modifications:
+    - target: {fileID: 597265240221650911, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585028791897018303, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_Name
       value: Spruce (52)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350763060559339830, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 9111942056348694522, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_LocalPosition.x
@@ -956,9 +1148,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6436148410139178728}
     m_Modifications:
+    - target: {fileID: 597265240221650911, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585028791897018303, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_Name
       value: Spruce (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350763060559339830, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 9111942056348694522, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1018,9 +1226,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6436148410139178728}
     m_Modifications:
+    - target: {fileID: 597265240221650911, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585028791897018303, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_Name
       value: Spruce (42)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350763060559339830, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 9111942056348694522, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1080,9 +1304,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6436148410139178728}
     m_Modifications:
+    - target: {fileID: 597265240221650911, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585028791897018303, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_Name
       value: Spruce (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350763060559339830, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 9111942056348694522, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1142,9 +1382,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6436148410139178728}
     m_Modifications:
+    - target: {fileID: 597265240221650911, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585028791897018303, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_Name
       value: Spruce (41)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350763060559339830, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 9111942056348694522, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1204,9 +1460,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6436148410139178728}
     m_Modifications:
+    - target: {fileID: 597265240221650911, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585028791897018303, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_Name
       value: Spruce (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350763060559339830, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 9111942056348694522, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1266,9 +1538,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6436148410139178728}
     m_Modifications:
+    - target: {fileID: 597265240221650911, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585028791897018303, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_Name
       value: Spruce (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350763060559339830, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 9111942056348694522, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1328,9 +1616,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6436148410139178728}
     m_Modifications:
+    - target: {fileID: 597265240221650911, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585028791897018303, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_Name
       value: Spruce (57)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350763060559339830, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 9111942056348694522, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1390,9 +1694,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6436148410139178728}
     m_Modifications:
+    - target: {fileID: 597265240221650911, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585028791897018303, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_Name
       value: Spruce (55)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350763060559339830, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 9111942056348694522, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1452,9 +1772,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6436148410139178728}
     m_Modifications:
+    - target: {fileID: 597265240221650911, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585028791897018303, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_Name
       value: Spruce (45)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350763060559339830, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 9111942056348694522, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1514,9 +1850,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6436148410139178728}
     m_Modifications:
+    - target: {fileID: 597265240221650911, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585028791897018303, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_Name
       value: Spruce (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350763060559339830, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 9111942056348694522, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1576,9 +1928,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6436148410139178728}
     m_Modifications:
+    - target: {fileID: 597265240221650911, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585028791897018303, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_Name
       value: Spruce (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350763060559339830, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 9111942056348694522, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1638,9 +2006,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6436148410139178728}
     m_Modifications:
+    - target: {fileID: 597265240221650911, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585028791897018303, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_Name
       value: Spruce (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350763060559339830, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 9111942056348694522, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1700,9 +2084,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6436148410139178728}
     m_Modifications:
+    - target: {fileID: 597265240221650911, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585028791897018303, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_Name
       value: Spruce (37)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350763060559339830, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 9111942056348694522, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1762,9 +2162,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6436148410139178728}
     m_Modifications:
+    - target: {fileID: 597265240221650911, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585028791897018303, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_Name
       value: Spruce (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350763060559339830, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 9111942056348694522, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1824,9 +2240,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6436148410139178728}
     m_Modifications:
+    - target: {fileID: 597265240221650911, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585028791897018303, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_Name
       value: Spruce (44)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350763060559339830, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 9111942056348694522, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1886,9 +2318,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6436148410139178728}
     m_Modifications:
+    - target: {fileID: 597265240221650911, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585028791897018303, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_Name
       value: Spruce (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350763060559339830, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 9111942056348694522, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1948,9 +2396,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6436148410139178728}
     m_Modifications:
+    - target: {fileID: 597265240221650911, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585028791897018303, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_Name
       value: Spruce (54)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350763060559339830, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 9111942056348694522, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2010,9 +2474,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6436148410139178728}
     m_Modifications:
+    - target: {fileID: 597265240221650911, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585028791897018303, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_Name
       value: Spruce (58)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350763060559339830, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 9111942056348694522, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2072,9 +2552,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6436148410139178728}
     m_Modifications:
+    - target: {fileID: 597265240221650911, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585028791897018303, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_Name
       value: Spruce (40)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350763060559339830, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 9111942056348694522, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2134,9 +2630,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6436148410139178728}
     m_Modifications:
+    - target: {fileID: 597265240221650911, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585028791897018303, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_Name
       value: Spruce (28)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350763060559339830, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 9111942056348694522, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2196,9 +2708,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6436148410139178728}
     m_Modifications:
+    - target: {fileID: 597265240221650911, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585028791897018303, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_Name
       value: Spruce (53)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350763060559339830, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 9111942056348694522, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2258,9 +2786,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6436148410139178728}
     m_Modifications:
+    - target: {fileID: 597265240221650911, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585028791897018303, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_Name
       value: Spruce (46)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268822030183486365, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350763060559339830, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 9111942056348694522, guid: 0e3095c6e659b5949b792862cdf9d123, type: 3}
       propertyPath: m_LocalPosition.x

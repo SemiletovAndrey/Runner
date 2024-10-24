@@ -22,7 +22,4 @@ public class ProjectContextInstallers : MonoInstaller
             Container.Bind<IInputService>().To<PCInputSystem>().AsSingle();
         }
     }
-
-
-
 }

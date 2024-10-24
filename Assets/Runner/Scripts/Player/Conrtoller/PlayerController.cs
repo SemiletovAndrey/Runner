@@ -24,6 +24,14 @@ public class PlayerController : MonoBehaviour
         UpdateView();
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
+        {
+            EndGame(); // Вызов метода для завершения игры
+        }
+    }
+
     private void HandleInput()
     {
         RightLeftHandler();
@@ -75,5 +83,11 @@ public class PlayerController : MonoBehaviour
     {
         if (_playerStateMachine.CurrentState != _playerStateMachine.GetState<JumpState>())
             _playerStateMachine.ChangeState(_playerStateMachine.GetState<JumpState>());
+    }
+
+    private void EndGame()
+    {
+        Debug.Log("GameOver");
+        Time.timeScale = 0;
     }
 }

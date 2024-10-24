@@ -17,8 +17,6 @@ public class TileManager : MonoBehaviour
     private float _timeRunSafeObstacle = 5f;
     private float _distanceForDeleteTile = 20f;
 
-    private int _initialCountTile = 3;
-
     private TilesObjectPool _poolTiles;
 
     [Inject(Id = "PlayerTransform")] private Transform _playerTransform;
