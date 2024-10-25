@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,19 +10,24 @@ public class PCInputSystem : IInputService
 
     private float _lastInputTime;
     private float _inputCooldown = 0.1f;
-    private bool _isActionProcessed = false;
+    private bool _isActionProcessed = true;
 
     public PCInputSystem()
     {
-        Debug.Log("Construct");
         SubscribeToInputEvents();
     }
 
     private void SubscribeToInputEvents()
     {
         _playerInput = new PlayerInput();
-        _moveAction = _playerInput.GameplayInput.PC; 
+        _moveAction = _playerInput.GameplayInput.PC;
+        _moveAction.started += OnStartedKey;
         _playerInput.Enable();
+    }
+
+    private void OnStartedKey(InputAction.CallbackContext context)
+    {
+        _isActionProcessed = true;
     }
 
     private bool CanPerformAction()
@@ -35,15 +41,10 @@ public class PCInputSystem : IInputService
         if (CanPerformAction())
         {
             Vector2 move = _moveAction.ReadValue<Vector2>();
-            if (move.y > _vectorDifference && !_isActionProcessed)
+            if (move.y > _vectorDifference)
             {
                 _lastInputTime = Time.time;
                 changePos = true;
-                _isActionProcessed = true;
-            }
-            else if (_isActionProcessed && move.y <= _vectorDifference)
-            {
-                _isActionProcessed = false;
             }
         }
         return changePos;
@@ -55,14 +56,10 @@ public class PCInputSystem : IInputService
         if (CanPerformAction())
         {
             Vector2 move = _moveAction.ReadValue<Vector2>();
-            if (move.x < -_vectorDifference && !_isActionProcessed)
+            if (move.x < -_vectorDifference && _isActionProcessed)
             {
                 _lastInputTime = Time.time;
                 changePos = true;
-                _isActionProcessed = true;
-            }
-            else if (move.x >= -_vectorDifference)
-            {
                 _isActionProcessed = false;
             }
         }
@@ -74,14 +71,10 @@ public class PCInputSystem : IInputService
         bool changePos = false;
         Vector2 move = _moveAction.ReadValue<Vector2>();
 
-        if (CanPerformAction() && move.x > _vectorDifference && !_isActionProcessed)
+        if (CanPerformAction() && move.x > _vectorDifference && _isActionProcessed)
         {
             _lastInputTime = Time.time;
-            _isActionProcessed = true;
             changePos = true;
-        }
-        else if (move.x <= _vectorDifference)
-        {
             _isActionProcessed = false;
         }
         return changePos;
@@ -92,15 +85,10 @@ public class PCInputSystem : IInputService
         bool changePos = false;
         Vector2 move = _moveAction.ReadValue<Vector2>();
 
-        if (CanPerformAction() && move.y < -_vectorDifference && !_isActionProcessed)
+        if (CanPerformAction() && move.y < -_vectorDifference)
         {
             _lastInputTime = Time.time;
-            _isActionProcessed = true;
             changePos = true;
-        }
-        else if (move.y >= -_vectorDifference)
-        {
-            _isActionProcessed = false;
         }
         return changePos;
     }
