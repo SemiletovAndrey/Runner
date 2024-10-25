@@ -208,6 +208,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4953529869950076933, guid: e19994782fbf97940896842391bafe1d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5239783114079142646, guid: e19994782fbf97940896842391bafe1d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -860,7 +864,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 738835363858460202, guid: 5f971f9da68f20e4cb7c6def26cbef49, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1572702724585819050, guid: 5f971f9da68f20e4cb7c6def26cbef49, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size

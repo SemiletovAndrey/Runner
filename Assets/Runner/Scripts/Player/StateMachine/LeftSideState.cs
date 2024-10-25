@@ -21,12 +21,12 @@ public class LeftSideState : IPlayerState
     public void Enter()
     {
         Debug.Log("Enter Left State");
-        _playerModel.AlignmentPlayerPosition();
+        //_playerModel.AlignmentPlayerPosition();
         _playerStateMachine.PreviousState = this;
     }
     public void Update()
     {
-        _playerModel.MoveForward();
+        _playerModel.UpdatePosition();
     }
 
     public void Exit()

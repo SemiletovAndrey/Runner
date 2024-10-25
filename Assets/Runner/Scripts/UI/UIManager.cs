@@ -16,7 +16,7 @@ public class UIManager : MonoBehaviour, IUIService
 
     private void Start()
     {
-        _mainUI.SetActive(false);
+        _mainUI.SetActive(true);
         _deathUI.SetActive(false);
     }
 

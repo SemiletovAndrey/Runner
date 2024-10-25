@@ -33,7 +33,7 @@ public class PlayerStateMachine : IPlayerStateMachine, IInitializable
     public void Initialize()
     {
         InitializeStates();
-        _currentState = _playerStates[typeof(CenterSideState)];
+        _currentState = _playerStates[typeof(IdleState)];
         _currentState.Enter();
     }
 

@@ -31,6 +31,6 @@ public class JumpState : IPlayerState
 
     public void Update()
     {
-        _playerModel.MoveForward();
+        _playerModel.UpdatePosition();
     }
 }

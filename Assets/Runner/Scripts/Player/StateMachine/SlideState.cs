@@ -32,6 +32,6 @@ public class SlideState : IPlayerState
 
     public void Update()
     {
-        _playerModel.MoveForward();
+        _playerModel.UpdatePosition();
     }
 }

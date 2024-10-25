@@ -26,6 +26,10 @@ public class PlayerModel
     private float _laneDistance = 2.5f;
     private CurrentLine _currentLine;
 
+    private Vector3 _targetPosition;
+
+    private Vector3 _horizontalOffset;
+
     public PlayerModel(Rigidbody rigidbodyPlayer, Transform playerTransform, Collider centerCollider, Collider jumpCollider, Collider slideCollider, IPlayerStateMachine playerStateMachine)
     {
         _rigidbodyPlayer = rigidbodyPlayer;
@@ -46,13 +50,14 @@ public class PlayerModel
 
     public void MoveForward()
     {
-        Vector3 moveDirection = _playerTransform.forward * Speed * Time.deltaTime;
-        RaycastHit hit;
+        //Vector3 moveDirection = _playerTransform.forward * Speed * Time.deltaTime;
+        //RaycastHit hit;
 
-        if (!Physics.Raycast(_rigidbodyPlayer.position, moveDirection, out hit, moveDirection.magnitude))
-        {
-            _rigidbodyPlayer.MovePosition(_rigidbodyPlayer.position + moveDirection);
-        }
+        //if (!Physics.Raycast(_rigidbodyPlayer.position, moveDirection, out hit, moveDirection.magnitude))
+        //{
+        //    _rigidbodyPlayer.MovePosition(_rigidbodyPlayer.position + moveDirection);
+        //    _targetPosition = _rigidbodyPlayer.transform.position;
+        //}
     }
 
     public void StartJump()
@@ -90,59 +95,50 @@ public class PlayerModel
 
     public void MoveLeft()
     {
-        Vector3 targetPosition = _rigidbodyPlayer.position + new Vector3(-_laneDistance, 0, 0);
-        if (CanJump)
+        if (_currentLane > -1)
         {
-            if (!(_currentLine == CurrentLine.Left) && !Physics.Raycast(_rigidbodyPlayer.position, Vector3.left, _laneDistance))
-            {
-                _rigidbodyPlayer.MovePosition(targetPosition);
-                _currentLane--;
-                _currentLine = (CurrentLine)_currentLane;
-
-                if (_currentLine == CurrentLine.Center)
-                    _playerStateMachine.ChangeState(_playerStateMachine.GetState<CenterSideState>());
-                if (_currentLine == CurrentLine.Left)
-                    _playerStateMachine.ChangeState(_playerStateMachine.GetState<LeftSideState>());
-            }
+            _currentLane--;
+            _currentLine = (CurrentLine)_currentLane;
+            UpdateTargetPosition();
+            UpdatePlayerState();
         }
     }
 
     public void MoveRight()
     {
-        Vector3 targetPosition = _rigidbodyPlayer.position + new Vector3(_laneDistance, 0, 0);
-        if (CanJump)
+        if (_currentLane < 1)
         {
-            if (!(_currentLine == CurrentLine.Right) && !Physics.Raycast(_rigidbodyPlayer.position, Vector3.right, _laneDistance))
-            {
-                _rigidbodyPlayer.MovePosition(targetPosition);
-                _currentLane++;
-                _currentLine = (CurrentLine)_currentLane;
-
-                if (_currentLine == CurrentLine.Center)
-                    _playerStateMachine.ChangeState(_playerStateMachine.GetState<CenterSideState>());
-                if (_currentLine == CurrentLine.Right)
-                    _playerStateMachine.ChangeState(_playerStateMachine.GetState<RightSideState>());
-            }
+            _currentLane++;
+            _currentLine = (CurrentLine)_currentLane;
+            UpdateTargetPosition();
+            UpdatePlayerState();
         }
     }
 
-    public void AlignmentPlayerPosition()
+    private void UpdateTargetPosition()
     {
-        switch(_currentLine)
-        {
-            case CurrentLine.Left:
-                Vector3 alignmentPosLeft = new Vector3(-_laneDistance, _rigidbodyPlayer.position.y, _rigidbodyPlayer.position.z);
-                _rigidbodyPlayer.MovePosition(alignmentPosLeft);
-                break;
-            case CurrentLine.Center:
-                Vector3 alignmentPosCenter = new Vector3(0, _rigidbodyPlayer.position.y, _rigidbodyPlayer.position.z);
-                _rigidbodyPlayer.MovePosition(alignmentPosCenter);
-                break;
-            case CurrentLine.Right:
-                Vector3 alignmentPosRight = new Vector3(_laneDistance, _rigidbodyPlayer.position.y, _rigidbodyPlayer.position.z);
-                _rigidbodyPlayer.MovePosition(alignmentPosRight);
-                break;
-        }
+        _targetPosition = new Vector3(_currentLane * _laneDistance, _rigidbodyPlayer.position.y, _rigidbodyPlayer.position.z);
+    }
+
+    public void UpdatePosition()
+    {
+        Vector3 targetHorizontalPosition = new Vector3(_targetPosition.x, _rigidbodyPlayer.position.y, _rigidbodyPlayer.position.z);
+
+        Vector3 horizontalMovement = Vector3.Lerp(_rigidbodyPlayer.position, targetHorizontalPosition, 10 * Time.deltaTime);
+
+        Vector3 forwardMovement = _playerTransform.forward * Speed * Time.deltaTime;
+        _rigidbodyPlayer.MovePosition(horizontalMovement + forwardMovement);
+    }
+
+
+    private void UpdatePlayerState()
+    {
+        if (_currentLine == CurrentLine.Center)
+            _playerStateMachine.ChangeState(_playerStateMachine.GetState<CenterSideState>());
+        else if (_currentLine == CurrentLine.Left)
+            _playerStateMachine.ChangeState(_playerStateMachine.GetState<LeftSideState>());
+        else if (_currentLine == CurrentLine.Right)
+            _playerStateMachine.ChangeState(_playerStateMachine.GetState<RightSideState>());
     }
 
 
