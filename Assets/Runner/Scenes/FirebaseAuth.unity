@@ -1118,6 +1118,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 203809034}
     m_Modifications:
     - target: {fileID: 955808658363676057, guid: 7ca10cc4a3bcf4c4d9dffb91695ba1a1, type: 3}
+      propertyPath: _authManager
+      value: 
+      objectReference: {fileID: 154154072}
+    - target: {fileID: 955808658363676057, guid: 7ca10cc4a3bcf4c4d9dffb91695ba1a1, type: 3}
       propertyPath: emailLoginField
       value: 
       objectReference: {fileID: 1127068249}

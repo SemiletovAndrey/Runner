@@ -28,6 +28,7 @@ public class UIManager : MonoBehaviour, IUIService
 
     public void Logout()
     {
+        FirebaseAuthManager.Instance.Logout();
         SceneManager.LoadScene(_authSceneName);
     }
     

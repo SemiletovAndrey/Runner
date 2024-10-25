@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class FirebaseAuthManager : MonoBehaviour
 {
-
+    public static FirebaseAuthManager Instance { get; private set; }
 
     [Header("Firebase")]
     public DependencyStatus dependencyStatus;
@@ -28,6 +28,19 @@ public class FirebaseAuthManager : MonoBehaviour
     [SerializeField] private string _sceneName = "GameLevel";
     [SerializeField] private UIAuthManager _authManager;
 
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this; 
+        DontDestroyOnLoad(gameObject);
+    }
+
+
     private void Start()
     {
         StartCoroutine(CheckAndFixDependenciesAsyncCoroutine());
@@ -36,6 +49,15 @@ public class FirebaseAuthManager : MonoBehaviour
     public void Login()
     {
         StartCoroutine(LoginAsync(emailLoginField.text, passwordLoginField.text));
+    }
+
+    public void Logout()
+    {
+        if(user != null && auth != null)
+        {
+            auth.SignOut();
+            Debug.Log("User logged out.");
+        }
     }
 
     public void Register()
@@ -108,6 +130,7 @@ public class FirebaseAuthManager : MonoBehaviour
             if (!signedIn && user != null)
             {
                 Debug.Log("Signed out " + user.UserId);
+                _authManager.LoginPanelOn();
             }
 
             user = auth.CurrentUser;
