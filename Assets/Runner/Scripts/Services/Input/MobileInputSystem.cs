@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class MobileInputSystem : IInputService
 {
     private Vector2 _startTouchPosition;
+    private Vector2 _currentTouchPosition;
     private Vector2 _endTouchPosition;
     private float _swipeThreshold = 50f;
     private Swipe _currentSwipe = Swipe.None;
@@ -14,6 +15,9 @@ public class MobileInputSystem : IInputService
 
     private float _lastInputTime;
     private float _inputCooldown = 0.05f;
+
+    private bool _isActionProcessed = true;
+
     public MobileInputSystem()
     {
         _playerInput = new PlayerInput();
@@ -22,7 +26,7 @@ public class MobileInputSystem : IInputService
         _pressAction = _playerInput.GameplayInput.Press;
 
         _pressAction.started += OnStartTouch;
-        _pressAction.canceled += OnCanceledTouch;
+        _positionAction.performed += OnPerformedTouch;
 
         _playerInput.Enable();
         _pressAction.Enable();
@@ -54,8 +58,9 @@ public class MobileInputSystem : IInputService
     {
         Vector2 touchPosition = _positionAction.ReadValue<Vector2>();
         _startTouchPosition = touchPosition;
+        _isActionProcessed = true;
     }
-    private void OnCanceledTouch(InputAction.CallbackContext context)
+    private void OnPerformedTouch(InputAction.CallbackContext context)
     {
         Vector2 touchPosition = _positionAction.ReadValue<Vector2>();
         _endTouchPosition = touchPosition;
@@ -65,13 +70,14 @@ public class MobileInputSystem : IInputService
     private bool IsChangeMoveOnTime(Swipe swipe)
     {
         bool changePos = false;
-        if (CanPerformAction() && _currentSwipe == swipe)
+        if (CanPerformAction() && _currentSwipe == swipe && _isActionProcessed)
         {
             if (SwipeDirection() == swipe)
             {
                 _lastInputTime = Time.time;
                 changePos = true;
                 _currentSwipe = Swipe.None;
+                _isActionProcessed = false;
             }
         }
         return changePos;
