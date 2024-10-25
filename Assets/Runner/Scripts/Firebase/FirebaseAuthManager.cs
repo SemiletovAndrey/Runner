@@ -26,23 +26,69 @@ public class FirebaseAuthManager : MonoBehaviour
     public TMP_InputField confirmPasswordRegisterField;
 
     [SerializeField] private string _sceneName = "GameLevel";
+    [SerializeField] private UIAuthManager _authManager;
 
-    private void Awake()
+    private void Start()
     {
-        // Check that all of the necessary dependencies for firebase are present on the system
-        FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task =>
-        {
-            dependencyStatus = task.Result;
+        StartCoroutine(CheckAndFixDependenciesAsyncCoroutine());
+    }
 
-            if (dependencyStatus == DependencyStatus.Available)
-            {
-                InitializeFirebase();
-            }
-            else
-            {
-                Debug.LogError("Could not resolve all firebase dependencies: " + dependencyStatus);
-            }
-        });
+    public void Login()
+    {
+        StartCoroutine(LoginAsync(emailLoginField.text, passwordLoginField.text));
+    }
+
+    public void Register()
+    {
+        StartCoroutine(RegisterAsync(nameRegisterField.text, emailRegisterField.text, passwordRegisterField.text, confirmPasswordRegisterField.text));
+    }
+
+    private IEnumerator CheckAndFixDependenciesAsyncCoroutine()
+    {
+        var dependencyTask = FirebaseApp.CheckAndFixDependenciesAsync();
+
+        yield return new WaitUntil(() => dependencyTask.IsCompleted);
+
+        dependencyStatus = dependencyTask.Result;
+
+        if (dependencyStatus == DependencyStatus.Available)
+        {
+            InitializeFirebase();
+            yield return new WaitForEndOfFrame();
+            StartCoroutine(CheckForAutoLogin());
+        }
+        else
+        {
+            Debug.LogError($"Could nor resolve all firebase dependencies: {dependencyStatus}");
+        }
+    }
+
+    private IEnumerator CheckForAutoLogin()
+    {
+        if (user != null)
+        {
+            var reloadUser = user.ReloadAsync();
+
+            yield return new WaitUntil(() => reloadUser.IsCompleted);
+
+            AutoLogin();
+        }
+        else
+        {
+            _authManager.LoginPanelOn();
+        }
+    }
+
+    private void AutoLogin()
+    {
+        if (user != null)
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(_sceneName);
+        }
+        else
+        {
+            _authManager.LoginPanelOn();
+        }
     }
 
     private void InitializeFirebase()
@@ -53,7 +99,7 @@ public class FirebaseAuthManager : MonoBehaviour
         AuthStateChanged(this, null);
     }
 
-    void AuthStateChanged(object sender, System.EventArgs eventArgs)
+    private void AuthStateChanged(object sender, System.EventArgs eventArgs)
     {
         if (auth.CurrentUser != user)
         {
@@ -71,11 +117,6 @@ public class FirebaseAuthManager : MonoBehaviour
                 Debug.Log("Signed in " + user.UserId);
             }
         }
-    }
-
-    public void Login()
-    {
-        StartCoroutine(LoginAsync(emailLoginField.text, passwordLoginField.text));
     }
 
     private IEnumerator LoginAsync(string email, string password)
@@ -125,11 +166,6 @@ public class FirebaseAuthManager : MonoBehaviour
             //References.userName = user.DisplayName;
             UnityEngine.SceneManagement.SceneManager.LoadScene(_sceneName);
         }
-    }
-
-    public void Register()
-    {
-        StartCoroutine(RegisterAsync(nameRegisterField.text, emailRegisterField.text, passwordRegisterField.text, confirmPasswordRegisterField.text));
     }
 
     private IEnumerator RegisterAsync(string name, string email, string password, string confirmPassword)
@@ -228,7 +264,7 @@ public class FirebaseAuthManager : MonoBehaviour
                 {
                     Debug.Log("Registration Sucessful Welcome " + user.DisplayName);
                     UnityEngine.SceneManagement.SceneManager.LoadScene(_sceneName);
-                    //UIManager.Instance.OpenLoginPanel();
+                    _authManager.LoginPanelOn();
                 }
             }
         }

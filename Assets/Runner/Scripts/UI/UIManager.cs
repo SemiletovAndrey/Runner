@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour, IUIService
 {
     private const float _timeToShowDeathUI = 1.5f;
     [SerializeField] private GameObject _deathUI;
     [SerializeField] private GameObject _mainUI;
+
+    [SerializeField] private string _authSceneName = "FirebaseAuth";
 
     private UIWindowAnimator _animatorDeath;
 
@@ -21,6 +24,21 @@ public class UIManager : MonoBehaviour, IUIService
     {
         _animatorDeath = new UIWindowAnimator(_deathUI.GetComponent<RectTransform>());
         StartCoroutine(SetActiveRestartCoroutine());
+    }
+
+    public void Logout()
+    {
+        SceneManager.LoadScene(_authSceneName);
+    }
+    
+    public void SettingsOn()
+    {
+        Debug.LogWarning("The settings are not implemented.");
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
     }
 
     private IEnumerator SetActiveRestartCoroutine()
