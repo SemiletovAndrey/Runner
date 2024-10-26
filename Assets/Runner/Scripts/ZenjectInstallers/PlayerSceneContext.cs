@@ -4,7 +4,6 @@ using UnityEngine;
 using Zenject;
 public class PlayerSceneContext : MonoInstaller
 {
-
     [SerializeField] private Animator _animatorPlayer;
     [SerializeField] private Collider _centerCollider;
     [SerializeField] private Collider _jumpCollider;
@@ -22,7 +21,7 @@ public class PlayerSceneContext : MonoInstaller
 
         Container.Bind<PlayerModel>()
             .AsSingle()
-            .WithArguments(_rigidbodyPlayer, _playerTransform, _centerCollider, _jumpCollider, _slideCollider);
+            .WithArguments(_rigidbodyPlayer, _centerCollider, _jumpCollider, _slideCollider);
 
         Container.Bind<PlayerView>()
             .AsSingle()

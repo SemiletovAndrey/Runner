@@ -5,16 +5,16 @@ public class PlayerController : MonoBehaviour
 {
     private IInputService _input;
     private PlayerModel _playerModel;
+    private PlayerView _playerView;
     private IPlayerStateMachine _playerStateMachine;
     private IUIService _uiService;
 
-    public PlayerModel PlayerModel {  get { return _playerModel; } }
-
     [Inject]
-    public void Construct(IInputService input,PlayerModel playerModel, IPlayerStateMachine playerStateMachine, IUIService uiService)
+    public void Construct(IInputService input,PlayerModel playerModel,PlayerView playerView, IPlayerStateMachine playerStateMachine, IUIService uiService)
     {
         _input = input;
         _playerModel = playerModel;
+        _playerView = playerView;
         _playerStateMachine = playerStateMachine;
         _uiService = uiService;
     }
@@ -68,11 +68,13 @@ public class PlayerController : MonoBehaviour
     {
         _playerModel.UpdateSpeed();
         _playerStateMachine.CurrentState.Update();
+        _playerModel.UpdateScore();
     }
 
     private void UpdateView()
     {
-
+        _playerView.UpdateAnimationSpeed(_playerModel.Speed);
+        _uiService.UpdateScore(_playerModel.CurrentScore);
     }
 
     private void SlideHandler()
@@ -90,6 +92,7 @@ public class PlayerController : MonoBehaviour
     private void EndGame()
     {
         Debug.Log("GameOver");
+        _playerModel.MaxScore = _playerModel.CurrentScore;
         _playerStateMachine.ChangeState(_playerStateMachine.GetState<DeathState>());
         _uiService.ShowDeathUI();
     }

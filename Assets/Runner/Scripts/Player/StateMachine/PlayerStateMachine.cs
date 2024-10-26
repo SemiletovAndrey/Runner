@@ -35,6 +35,7 @@ public class PlayerStateMachine : IPlayerStateMachine, IInitializable
         InitializeStates();
         _currentState = _playerStates[typeof(IdleState)];
         _currentState.Enter();
+        EventBus.OnRestartGame += RestartAllState;
     }
 
     public void ChangeState(IPlayerState newState)
@@ -68,6 +69,13 @@ public class PlayerStateMachine : IPlayerStateMachine, IInitializable
     public void Update()
     {
         _currentState.Update();
+    }
+
+    public void RestartAllState()
+    {
+        _previousState = _playerStates[typeof(IdleState)];
+        _currentState = _playerStates[typeof(IdleState)];
+        _currentState.Enter();
     }
 
     public TState GetState<TState>() where TState : class, IPlayerState

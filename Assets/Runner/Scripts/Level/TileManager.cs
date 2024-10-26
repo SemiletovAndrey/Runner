@@ -30,6 +30,7 @@ public class TileManager : MonoBehaviour
         {
             SpawnTile(Random.Range(0, _tilePrefabs.Count));
         }
+        EventBus.OnRestartGame += OnRestartTileGame;
     }
 
     private void Update()
@@ -50,6 +51,11 @@ public class TileManager : MonoBehaviour
 
         tile.SetActive(true);
         _activeTiles.Add(tile);
+    }
+
+    public void OnRestartTileGame()
+    {
+        _zSpawn = 0;
     }
 
     private void SpawnSafeTiles()

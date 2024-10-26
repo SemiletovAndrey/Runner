@@ -3,18 +3,9 @@ using UnityEngine;
 
 public class PlayerModel
 {
-    public bool IsAlive { get; set; } = true;
-    public Vector3 Position { get; internal set; }
-    public float Speed { get; set; } = 5f;
-    public int Score { get; set; }
-
-    public bool CanJump { get; private set; } = true;
-    public bool CanSlide { get; private set; } = true;
-
     private float _maxSpeed = 200f;
-    private float _acceleration = 0.05f;
+    private float _acceleration = 0.5f;
     private Rigidbody _rigidbodyPlayer;
-    private Transform _playerTransform;
 
     private Collider _centerCollider;
     private Collider _jumpCollider;
@@ -27,17 +18,39 @@ public class PlayerModel
     private CurrentLine _currentLine;
 
     private Vector3 _targetPosition;
+    private Vector3 _startPosition;
+    private int _maxScore;
 
-    private Vector3 _horizontalOffset;
+    public Vector3 Position { get; internal set; }
+    public float Speed { get; set; } = 5f;
+    public int CurrentScore { get; set; }
+    public int MaxScore
+    {
+        get 
+        {
+            return _maxScore; 
+        }
+        set
+        {
+            if (value > _maxScore)
+            {
+                _maxScore = value;
+            }
+        }
+    }
 
-    public PlayerModel(Rigidbody rigidbodyPlayer, Transform playerTransform, Collider centerCollider, Collider jumpCollider, Collider slideCollider, IPlayerStateMachine playerStateMachine)
+    public bool CanJump { get; private set; } = true;
+    public bool CanSlide { get; private set; } = true;
+
+    public PlayerModel(Rigidbody rigidbodyPlayer, Collider centerCollider, Collider jumpCollider, Collider slideCollider, IPlayerStateMachine playerStateMachine)
     {
         _rigidbodyPlayer = rigidbodyPlayer;
-        _playerTransform = playerTransform;
         _centerCollider = centerCollider;
         _jumpCollider = jumpCollider;
         _slideCollider = slideCollider;
         _playerStateMachine = playerStateMachine;
+
+        _startPosition = _rigidbodyPlayer.position;
     }
 
     public void UpdateSpeed()
@@ -46,18 +59,6 @@ public class PlayerModel
         {
             Speed += _acceleration * Time.deltaTime;
         }
-    }
-
-    public void MoveForward()
-    {
-        //Vector3 moveDirection = _playerTransform.forward * Speed * Time.deltaTime;
-        //RaycastHit hit;
-
-        //if (!Physics.Raycast(_rigidbodyPlayer.position, moveDirection, out hit, moveDirection.magnitude))
-        //{
-        //    _rigidbodyPlayer.MovePosition(_rigidbodyPlayer.position + moveDirection);
-        //    _targetPosition = _rigidbodyPlayer.transform.position;
-        //}
     }
 
     public void StartJump()
@@ -95,7 +96,7 @@ public class PlayerModel
 
     public void MoveLeft()
     {
-        if (_currentLane > -1)
+        if (_currentLane > -1 && !Physics.Raycast(_rigidbodyPlayer.position, Vector3.left, _laneDistance))
         {
             _currentLane--;
             _currentLine = (CurrentLine)_currentLane;
@@ -106,7 +107,7 @@ public class PlayerModel
 
     public void MoveRight()
     {
-        if (_currentLane < 1)
+        if (_currentLane < 1 && !Physics.Raycast(_rigidbodyPlayer.position, Vector3.right, _laneDistance))
         {
             _currentLane++;
             _currentLine = (CurrentLine)_currentLane;
@@ -126,8 +127,14 @@ public class PlayerModel
 
         Vector3 horizontalMovement = Vector3.Lerp(_rigidbodyPlayer.position, targetHorizontalPosition, 10 * Time.deltaTime);
 
-        Vector3 forwardMovement = _playerTransform.forward * Speed * Time.deltaTime;
+        Vector3 forwardMovement = _rigidbodyPlayer.transform.forward * Speed * Time.deltaTime;
         _rigidbodyPlayer.MovePosition(horizontalMovement + forwardMovement);
+    }
+
+    public void UpdateScore()
+    {
+        float distanceTravelled = _rigidbodyPlayer.position.z - _startPosition.z;
+        CurrentScore = Mathf.FloorToInt(distanceTravelled);
     }
 
 
@@ -141,6 +148,25 @@ public class PlayerModel
             _playerStateMachine.ChangeState(_playerStateMachine.GetState<RightSideState>());
     }
 
+    public void RestartPlayerPosition()
+    {
+        Position = new Vector3(0, 0.2f, 0);
+        Speed = 5f;
+        CurrentScore = 0;
+        _rigidbodyPlayer.transform.position = Position;
+        _rigidbodyPlayer.isKinematic = true;
+        _currentLane = 0;
+        _currentLine = CurrentLine.Center;
+        AllColliderOff();
+        _centerCollider.enabled = true;
+        CanJump = true;
+        CanSlide = true;
+    }
+
+    public void EnterPlayPlayer()
+    {
+        _rigidbodyPlayer.isKinematic = false;
+    }
 
     private void JumpColliderOn()
     {

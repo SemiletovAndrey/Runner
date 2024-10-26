@@ -18,8 +18,8 @@ public class CenterSideState : IPlayerState
     public void Enter()
     {
         Debug.Log("Enter Center State");
-        //_playerModel.AlignmentPlayerPosition();
         _playerView.PlayRunAnimation();
+        _playerModel.EnterPlayPlayer();
         _playerStateMachine.PreviousState = this;
     }
     public void Update()

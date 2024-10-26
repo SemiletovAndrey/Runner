@@ -19,12 +19,14 @@ public class IdleState : IPlayerState
 
     public void Enter()
     {
+        Debug.Log("Enter Idle");
+        _playerModel.RestartPlayerPosition();
         _playerView.PlayIdleAnimation();
     }
 
     public void Exit()
     {
-        _playerStateMachine.ChangeState(_playerStateMachine.GetState<CenterSideState>());
+        
     }
 
     public void ReturnState()
@@ -34,6 +36,6 @@ public class IdleState : IPlayerState
 
     public void Update()
     {
-        _playerModel.MoveForward();
+
     }
 }

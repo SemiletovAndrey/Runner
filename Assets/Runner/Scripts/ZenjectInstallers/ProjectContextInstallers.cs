@@ -8,7 +8,6 @@ public class ProjectContextInstallers : MonoInstaller
     public override void InstallBindings()
     {
         BindInputServices();
-
     }
 
     private void BindInputServices()
