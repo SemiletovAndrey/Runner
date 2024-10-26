@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour, IUIService
     [SerializeField] private GameObject _deathUI;
     [SerializeField] private GameObject _mainUI;
     [SerializeField] private GameObject _gUI;
+    [SerializeField] private GameObject _leaderBoardUI;
 
     [SerializeField] private TextMeshProUGUI _scoreText;
 
@@ -47,11 +48,23 @@ public class UIManager : MonoBehaviour, IUIService
         _playerStateMachine.ChangeState(_playerStateMachine.GetState<IdleState>());
     }
 
+   
+
     public void ShowDeathUI()
     {
         _animatorDeath = new UIWindowAnimator(_deathUI.GetComponent<RectTransform>());
         StartCoroutine(SetActiveRestartCoroutine());
         _playerController.enabled = false;
+    }
+
+    public void ShowLeaderboard()
+    {
+        _leaderBoardUI.SetActive(true);
+    }
+
+    public void BackToMenu()
+    {
+        _leaderBoardUI.SetActive(false);
     }
 
     public void UpdateScore(int score)

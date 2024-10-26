@@ -8,6 +8,8 @@ public class ProjectContextInstallers : MonoInstaller
     public override void InstallBindings()
     {
         BindInputServices();
+
+        Container.Bind<PlayerData>().AsSingle();
     }
 
     private void BindInputServices()
