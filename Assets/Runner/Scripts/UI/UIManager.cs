@@ -75,6 +75,7 @@ public class UIManager : MonoBehaviour, IUIService
     public void Logout()
     {
         FirebaseAuthManager.Instance.Logout();
+        PlayerPrefs.DeleteKey("MaxScore");
         SceneManager.LoadScene(_authSceneName);
     }
     
@@ -85,6 +86,7 @@ public class UIManager : MonoBehaviour, IUIService
 
     public void Exit()
     {
+        PlayerPrefs.DeleteKey("MaxScore");
         Application.Quit();
     }
 

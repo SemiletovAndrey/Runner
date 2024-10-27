@@ -291,6 +291,7 @@ public class FirebaseAuthManager : MonoBehaviour
                 {
                     Debug.Log("Registration Sucessful Welcome " + user.DisplayName);
                     UnityEngine.SceneManagement.SceneManager.LoadScene(_sceneName);
+                    _playerData.UserName = user.DisplayName;
                     _authManager.LoginPanelOn();
                 }
             }

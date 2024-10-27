@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:keep="@string/firebase_database_url,@string/gcm_defaultSenderId,@string/google_storage_bucket,@string/project_id,@string/google_api_key,@string/google_crash_reporting_api_key,@string/google_app_id">
-  <string name="firebase_database_url" translatable="false">null</string>
-  <string name="gcm_defaultSenderId" translatable="false">778545434351</string>
-  <string name="google_storage_bucket" translatable="false">runner-33ea4.appspot.com</string>
-  <string name="project_id" translatable="false">runner-33ea4</string>
-  <string name="google_api_key" translatable="false">AIzaSyCMyJP1eYIKU2J4Q1raxPDrfQiks3s7mIU</string>
-  <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCMyJP1eYIKU2J4Q1raxPDrfQiks3s7mIU</string>
-  <string name="google_app_id" translatable="false">1:778545434351:android:d535d740ff6bf53238551a</string>
+  <string name="firebase_database_url" translatable="false">https://runnertest-80107-default-rtdb.firebaseio.com</string>
+  <string name="gcm_defaultSenderId" translatable="false">498690572106</string>
+  <string name="google_storage_bucket" translatable="false">runnertest-80107.appspot.com</string>
+  <string name="project_id" translatable="false">runnertest-80107</string>
+  <string name="google_api_key" translatable="false">AIzaSyDClTjFtAcqZk2k4UbsNnSTY0Ur52BcJss</string>
+  <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDClTjFtAcqZk2k4UbsNnSTY0Ur52BcJss</string>
+  <string name="google_app_id" translatable="false">1:498690572106:android:7fc4e94e953e2326ed4bb3</string>
 </resources>
