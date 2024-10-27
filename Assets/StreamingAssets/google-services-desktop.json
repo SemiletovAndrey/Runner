@@ -1,22 +1,21 @@
 {
   "project_info": {
-    "firebase_url" : "null",
-    "project_number": "778545434351",
-    "project_id": "runner-33ea4",
-    "storage_bucket": "runner-33ea4.appspot.com"
+    "project_number": "498690572106",
+    "project_id": "runnertest-80107",
+    "storage_bucket": "runnertest-80107.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:778545434351:android:d535d740ff6bf53238551a",
+        "mobilesdk_app_id": "1:498690572106:android:7fc4e94e953e2326ed4bb3",
         "android_client_info": {
-          "package_name": "com.DefaultCompany.Runner"
+          "package_name": "com.semiletov.Runner"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCMyJP1eYIKU2J4Q1raxPDrfQiks3s7mIU"
+          "current_key": "AIzaSyDClTjFtAcqZk2k4UbsNnSTY0Ur52BcJss"
         }
       ],
       "services": {

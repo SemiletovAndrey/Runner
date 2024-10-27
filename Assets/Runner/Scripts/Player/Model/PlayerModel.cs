@@ -165,10 +165,17 @@ public class PlayerModel
         _rigidbodyPlayer.isKinematic = true;
         _currentLane = 0;
         _currentLine = CurrentLine.Center;
+        _playerStateMachine.PreviousState = _playerStateMachine.GetState<CenterSideState>();
+        _targetPosition = _startPosition;
         AllColliderOff();
         _centerCollider.enabled = true;
         CanJump = true;
         CanSlide = true;
+    }
+
+    public void DeathPlayer()
+    {
+        _rigidbodyPlayer.isKinematic = true;
     }
 
     public void EnterPlayPlayer()

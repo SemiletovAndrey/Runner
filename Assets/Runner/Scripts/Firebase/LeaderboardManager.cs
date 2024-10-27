@@ -17,5 +17,12 @@ public class LeaderboardManager : MonoBehaviour
         _playerData.MaxScore = PlayerPrefs.GetInt("MaxScore");
         _playerName.text = _playerData.UserName;
         _playerScore.text = _playerData.MaxScore.ToString();
+        EventBus.OnDeathPlayer += UpdateScoreonLeaderBoard;
+    }
+
+    public void UpdateScoreonLeaderBoard()
+    {
+        _playerData.MaxScore = PlayerPrefs.GetInt("MaxScore");
+        _playerScore.text = _playerData.MaxScore.ToString();
     }
 }

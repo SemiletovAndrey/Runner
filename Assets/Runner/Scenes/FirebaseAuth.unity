@@ -272,6 +272,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5129048685747210746, guid: 048a4ba0b82494f43b1149112e238515, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8649471802254329147, guid: 048a4ba0b82494f43b1149112e238515, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -383,7 +387,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 154154072}
         m_TargetAssemblyTypeName: UIAuthManager, Assembly-CSharp
-        m_MethodName: RegisterUIOn
+        m_MethodName: RegisterPanelOn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -707,6 +711,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6337214506021586594, guid: 2e6dc407727d28d44b8761a8951db023, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6592250314898718117, guid: 2e6dc407727d28d44b8761a8951db023, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -890,7 +898,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 154154072}
         m_TargetAssemblyTypeName: UIAuthManager, Assembly-CSharp
-        m_MethodName: LoginUIOn
+        m_MethodName: LoginPanelOn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -18,6 +18,7 @@ public class DeathState : IPlayerState
         Debug.Log("Enter death State");
         _playerView.PlayDeathAnimation();
         _playerView.StopAnimations();
+        _playerModel.DeathPlayer();
     }
 
     public void Exit()
