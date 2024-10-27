@@ -3,10 +3,13 @@ using Firebase.Auth;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using Zenject;
 
 public class FirebaseAuthManager : MonoBehaviour
 {
     public static FirebaseAuthManager Instance { get; private set; }
+
+    [Inject] private PlayerData _playerData;
 
     [Header("Firebase")]
     public DependencyStatus dependencyStatus;
@@ -105,6 +108,7 @@ public class FirebaseAuthManager : MonoBehaviour
     {
         if (user != null)
         {
+            _playerData.UserName = user.DisplayName;
             UnityEngine.SceneManagement.SceneManager.LoadScene(_sceneName);
         }
         else
@@ -186,7 +190,7 @@ public class FirebaseAuthManager : MonoBehaviour
 
             Debug.LogFormat("{0} You Are Successfully Logged In", user.DisplayName);
 
-            //References.userName = user.DisplayName;
+            _playerData.UserName = user.DisplayName;
             UnityEngine.SceneManagement.SceneManager.LoadScene(_sceneName);
         }
     }

@@ -51,6 +51,8 @@ public class PlayerModel
         _playerStateMachine = playerStateMachine;
 
         _startPosition = _rigidbodyPlayer.position;
+        MaxScore = PlayerPrefs.GetInt("MaxScore");
+        EventBus.OnDeathPlayer += SaveMaxScore;
     }
 
     public void UpdateSpeed()
@@ -114,6 +116,12 @@ public class PlayerModel
             UpdateTargetPosition();
             UpdatePlayerState();
         }
+    }
+
+    public void SaveMaxScore()
+    {
+        PlayerPrefs.SetInt("MaxScore", MaxScore);
+        Debug.Log($"SaveMaxScore {MaxScore}");
     }
 
     private void UpdateTargetPosition()
