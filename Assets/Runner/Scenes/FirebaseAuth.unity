@@ -699,6 +699,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1615053292}
     m_Modifications:
+    - target: {fileID: 242012125407591816, guid: 2e6dc407727d28d44b8761a8951db023, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 242012125407591816, guid: 2e6dc407727d28d44b8761a8951db023, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 933923254305103255, guid: 2e6dc407727d28d44b8761a8951db023, type: 3}
       propertyPath: m_SortingOrder
       value: 10
@@ -710,6 +718,22 @@ PrefabInstance:
     - target: {fileID: 1634080411423552099, guid: 2e6dc407727d28d44b8761a8951db023, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2188423853239630447, guid: 2e6dc407727d28d44b8761a8951db023, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 2188423853239630447, guid: 2e6dc407727d28d44b8761a8951db023, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2511804606322340176, guid: 2e6dc407727d28d44b8761a8951db023, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 2511804606322340176, guid: 2e6dc407727d28d44b8761a8951db023, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6337214506021586594, guid: 2e6dc407727d28d44b8761a8951db023, type: 3}
       propertyPath: m_Color.a
@@ -794,6 +818,22 @@ PrefabInstance:
     - target: {fileID: 6592250314898718117, guid: 2e6dc407727d28d44b8761a8951db023, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6793568570256388925, guid: 2e6dc407727d28d44b8761a8951db023, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 6793568570256388925, guid: 2e6dc407727d28d44b8761a8951db023, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7534702533021002609, guid: 2e6dc407727d28d44b8761a8951db023, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 7534702533021002609, guid: 2e6dc407727d28d44b8761a8951db023, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8768637093453044286, guid: 2e6dc407727d28d44b8761a8951db023, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size

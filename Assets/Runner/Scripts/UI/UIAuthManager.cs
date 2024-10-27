@@ -9,7 +9,7 @@ public class UIAuthManager : MonoBehaviour
 
     private void Start()
     {
-        _loginUI.SetActive(false);
+        _loginUI.SetActive(true);
         _registerUI.SetActive(false);
     }
 
