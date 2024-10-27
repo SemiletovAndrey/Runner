@@ -36,7 +36,7 @@ public class FirebaseAuthManager : MonoBehaviour
             return;
         }
 
-        Instance = this; 
+        Instance = this;
         DontDestroyOnLoad(gameObject);
     }
 
@@ -53,7 +53,7 @@ public class FirebaseAuthManager : MonoBehaviour
 
     public void Logout()
     {
-        if(user != null && auth != null)
+        if (user != null && auth != null)
         {
             auth.SignOut();
             Debug.Log("User logged out.");
