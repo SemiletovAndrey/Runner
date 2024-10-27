@@ -11,12 +11,15 @@ public class PlayerSceneContext : MonoInstaller
     [SerializeField] private Rigidbody _rigidbodyPlayer;
     [SerializeField] private Transform _playerTransform;
 
+    [SerializeField] private PlayerConfig _playerConfig;
+
     public override void InstallBindings()
     {
 
         Container.Bind<IPlayerStateFactory>().To<PlayerStateFactory>().AsSingle().NonLazy();
 
         Container.BindInterfacesAndSelfTo<PlayerStateMachine>().AsSingle();
+        Container.Bind<PlayerConfig>().FromInstance(_playerConfig).AsSingle();
 
 
         Container.Bind<PlayerModel>()

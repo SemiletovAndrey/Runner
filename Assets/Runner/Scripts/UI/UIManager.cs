@@ -18,6 +18,7 @@ public class UIManager : MonoBehaviour, IUIService
 
     [Inject] private IPlayerStateMachine _playerStateMachine;
     [Inject(Id = "PlayerTransform")] private Transform _playerTransform;
+    [Inject] private PlayerModel _playerModel;
     private PlayerController _playerController;
     private UIWindowAnimator _animatorDeath;
 
@@ -35,9 +36,18 @@ public class UIManager : MonoBehaviour, IUIService
     public void PressStartGame()
     {
         _mainUI.SetActive(false);
-        _gUI?.SetActive(true);
+        _gUI.SetActive(true);
         _playerStateMachine.ChangeState(_playerStateMachine.GetState<CenterSideState>());
         _playerController.enabled = true;
+    }
+
+    public void ResurectionPlayer()
+    {
+        _playerController.enabled = true;
+        _playerModel.ResurectionPlayer();
+        _deathUI.SetActive(false);
+        _gUI.SetActive(true);
+        _playerStateMachine.RevertToPreviousState();
     }
 
     public void MainMenu()

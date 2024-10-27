@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class PlayerModel
 {
-    private float _maxSpeed = 200f;
-    private float _acceleration = 0.5f;
+    private PlayerConfig _playerConfig;
+
     private Rigidbody _rigidbodyPlayer;
 
     private Collider _centerCollider;
@@ -14,7 +14,6 @@ public class PlayerModel
     private IPlayerStateMachine _playerStateMachine;
 
     private int _currentLane = 0;
-    private float _laneDistance = 2.5f;
     private CurrentLine _currentLine;
 
     private Vector3 _targetPosition;
@@ -22,13 +21,13 @@ public class PlayerModel
     private int _maxScore;
 
     public Vector3 Position { get; internal set; }
-    public float Speed { get; set; } = 5f;
+    public float Speed { get; set; } 
     public int CurrentScore { get; set; }
     public int MaxScore
     {
-        get 
+        get
         {
-            return _maxScore; 
+            return _maxScore;
         }
         set
         {
@@ -42,14 +41,16 @@ public class PlayerModel
     public bool CanJump { get; private set; } = true;
     public bool CanSlide { get; private set; } = true;
 
-    public PlayerModel(Rigidbody rigidbodyPlayer, Collider centerCollider, Collider jumpCollider, Collider slideCollider, IPlayerStateMachine playerStateMachine)
+    public PlayerModel(Rigidbody rigidbodyPlayer, Collider centerCollider, Collider jumpCollider, Collider slideCollider, IPlayerStateMachine playerStateMachine, PlayerConfig playerConfig)
     {
         _rigidbodyPlayer = rigidbodyPlayer;
         _centerCollider = centerCollider;
         _jumpCollider = jumpCollider;
         _slideCollider = slideCollider;
         _playerStateMachine = playerStateMachine;
+        _playerConfig = playerConfig;
 
+        Speed = _playerConfig.DefaultSpeed;
         _startPosition = _rigidbodyPlayer.position;
         MaxScore = PlayerPrefs.GetInt("MaxScore");
         EventBus.OnDeathPlayer += SaveMaxScore;
@@ -57,9 +58,9 @@ public class PlayerModel
 
     public void UpdateSpeed()
     {
-        if (Speed < _maxSpeed)
+        if (Speed < _playerConfig.MaxSpeed)
         {
-            Speed += _acceleration * Time.deltaTime;
+            Speed += _playerConfig.Acceleration * Time.deltaTime;
         }
     }
 
@@ -98,7 +99,7 @@ public class PlayerModel
 
     public void MoveLeft()
     {
-        if (_currentLane > -1 && !Physics.Raycast(_rigidbodyPlayer.position, Vector3.left, _laneDistance))
+        if (_currentLane > -1 && !Physics.Raycast(_rigidbodyPlayer.position, Vector3.left,_playerConfig.LaneDistance))
         {
             _currentLane--;
             _currentLine = (CurrentLine)_currentLane;
@@ -109,7 +110,7 @@ public class PlayerModel
 
     public void MoveRight()
     {
-        if (_currentLane < 1 && !Physics.Raycast(_rigidbodyPlayer.position, Vector3.right, _laneDistance))
+        if (_currentLane < 1 && !Physics.Raycast(_rigidbodyPlayer.position, Vector3.right, _playerConfig.LaneDistance))
         {
             _currentLane++;
             _currentLine = (CurrentLine)_currentLane;
@@ -126,7 +127,7 @@ public class PlayerModel
 
     private void UpdateTargetPosition()
     {
-        _targetPosition = new Vector3(_currentLane * _laneDistance, _rigidbodyPlayer.position.y, _rigidbodyPlayer.position.z);
+        _targetPosition = new Vector3(_currentLane * _playerConfig.LaneDistance, _rigidbodyPlayer.position.y, _rigidbodyPlayer.position.z);
     }
 
     public void UpdatePosition()
@@ -159,13 +160,29 @@ public class PlayerModel
     public void RestartPlayerPosition()
     {
         Position = new Vector3(0, 0.2f, 0);
-        Speed = 5f;
+        Speed = _playerConfig.DefaultSpeed;
         CurrentScore = 0;
         _rigidbodyPlayer.transform.position = Position;
         _rigidbodyPlayer.isKinematic = true;
         _currentLane = 0;
         _currentLine = CurrentLine.Center;
         _playerStateMachine.PreviousState = _playerStateMachine.GetState<CenterSideState>();
+        _targetPosition = _startPosition;
+        AllColliderOff();
+        _centerCollider.enabled = true;
+        CanJump = true;
+        CanSlide = true;
+    }
+
+    public void ResurectionPlayer()
+    {
+        _currentLane = 0;
+        _currentLine = CurrentLine.Center;
+        Position = new Vector3(0, _rigidbodyPlayer.transform.position.y, _rigidbodyPlayer.transform.position.z - 10);
+        _playerStateMachine.PreviousState = _playerStateMachine.GetState<CenterSideState>();
+        _playerStateMachine.ChangeState(_playerStateMachine.GetState<CenterSideState>());
+        _rigidbodyPlayer.transform.position = Position;
+        Speed = _playerConfig.DefaultSpeed;
         _targetPosition = _startPosition;
         AllColliderOff();
         _centerCollider.enabled = true;

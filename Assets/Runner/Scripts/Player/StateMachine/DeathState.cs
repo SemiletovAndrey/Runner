@@ -23,6 +23,7 @@ public class DeathState : IPlayerState
 
     public void Exit()
     {
+        
     }
 
     public void ReturnState()
