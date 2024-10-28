@@ -29,7 +29,7 @@ public class FirebaseAuthManager : MonoBehaviour
     public TMP_InputField confirmPasswordRegisterField;
 
     [SerializeField] private string _sceneName = "GameLevel";
-    [SerializeField] private UIAuthManager _authManager;
+    [SerializeField] private UIAuthManager _uiAuthManager;
 
     private void Awake()
     {
@@ -44,7 +44,7 @@ public class FirebaseAuthManager : MonoBehaviour
     }
 
 
-    private void Start()
+    private void OnEnable()
     {
         StartCoroutine(CheckAndFixDependenciesAsyncCoroutine());
     }
@@ -100,7 +100,7 @@ public class FirebaseAuthManager : MonoBehaviour
         }
         else
         {
-            _authManager.LoginPanelOn();
+            _uiAuthManager.LoginPanelOn();
         }
     }
 
@@ -113,7 +113,7 @@ public class FirebaseAuthManager : MonoBehaviour
         }
         else
         {
-            _authManager.LoginPanelOn();
+            _uiAuthManager.LoginPanelOn();
         }
     }
 
@@ -134,7 +134,7 @@ public class FirebaseAuthManager : MonoBehaviour
             if (!signedIn && user != null)
             {
                 Debug.Log("Signed out " + user.UserId);
-                _authManager.LoginPanelOn();
+                _uiAuthManager.LoginPanelOn();
             }
 
             user = auth.CurrentUser;
@@ -159,25 +159,28 @@ public class FirebaseAuthManager : MonoBehaviour
             FirebaseException firebaseException = loginTask.Exception.GetBaseException() as FirebaseException;
             AuthError authError = (AuthError)firebaseException.ErrorCode;
 
-
             string failedMessage = "Login Failed! Because ";
-
             switch (authError)
             {
                 case AuthError.InvalidEmail:
                     failedMessage += "Email is invalid";
+                    _uiAuthManager.ErrorLoginText(failedMessage);
                     break;
                 case AuthError.WrongPassword:
                     failedMessage += "Wrong Password";
+                    _uiAuthManager.ErrorLoginText(failedMessage);
                     break;
                 case AuthError.MissingEmail:
                     failedMessage += "Email is missing";
+                    _uiAuthManager.ErrorLoginText(failedMessage);
                     break;
                 case AuthError.MissingPassword:
                     failedMessage += "Password is missing";
+                    _uiAuthManager.ErrorLoginText(failedMessage);
                     break;
                 default:
                     failedMessage = "Login Failed";
+                    _uiAuthManager.ErrorLoginText(failedMessage);
                     break;
             }
 
@@ -185,8 +188,7 @@ public class FirebaseAuthManager : MonoBehaviour
         }
         else
         {
-            AuthResult authResult = loginTask.Result;
-            user = authResult.User;
+            user = loginTask.Result;
 
             Debug.LogFormat("{0} You Are Successfully Logged In", user.DisplayName);
 
@@ -227,15 +229,19 @@ public class FirebaseAuthManager : MonoBehaviour
                 {
                     case AuthError.InvalidEmail:
                         failedMessage += "Email is invalid";
+                        _uiAuthManager.ErrorRegisterText(failedMessage);
                         break;
                     case AuthError.WrongPassword:
                         failedMessage += "Wrong Password";
+                        _uiAuthManager.ErrorRegisterText(failedMessage);
                         break;
                     case AuthError.MissingEmail:
                         failedMessage += "Email is missing";
+                        _uiAuthManager.ErrorRegisterText(failedMessage);
                         break;
                     case AuthError.MissingPassword:
                         failedMessage += "Password is missing";
+                        _uiAuthManager.ErrorRegisterText(failedMessage);
                         break;
                     default:
                         failedMessage = "Registration Failed";
@@ -246,8 +252,7 @@ public class FirebaseAuthManager : MonoBehaviour
             }
             else
             {
-                var authResult = registerTask.Result;
-                user = authResult.User;
+                user = registerTask.Result;
 
                 UserProfile userProfile = new UserProfile { DisplayName = name };
 
@@ -292,7 +297,7 @@ public class FirebaseAuthManager : MonoBehaviour
                     Debug.Log("Registration Sucessful Welcome " + user.DisplayName);
                     UnityEngine.SceneManagement.SceneManager.LoadScene(_sceneName);
                     _playerData.UserName = user.DisplayName;
-                    _authManager.LoginPanelOn();
+                    _uiAuthManager.LoginPanelOn();
                 }
             }
         }
