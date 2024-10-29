@@ -11,10 +11,13 @@ public class UIManager : MonoBehaviour, IUIService
     [SerializeField] private GameObject _mainUI;
     [SerializeField] private GameObject _gUI;
     [SerializeField] private GameObject _leaderBoardUI;
+    [SerializeField] private GameObject _pauseUI;
+    [SerializeField] private GameObject _settingsUI;
 
     [SerializeField] private TextMeshProUGUI _scoreText;
 
     [SerializeField] private string _authSceneName = "FirebaseAuth";
+    [SerializeField] private FirebaseGameManager _firebaseGameManager;
 
     [Inject] private IPlayerStateMachine _playerStateMachine;
     [Inject(Id = "PlayerTransform")] private Transform _playerTransform;
@@ -27,6 +30,8 @@ public class UIManager : MonoBehaviour, IUIService
         _mainUI.SetActive(true);
         _deathUI.SetActive(false);
         _gUI.SetActive(false);
+        _pauseUI.SetActive(false);
+        _settingsUI.SetActive(false);
 
         _playerController = _playerTransform.GetComponent<PlayerController>();
         _playerController.enabled = false;
@@ -58,6 +63,19 @@ public class UIManager : MonoBehaviour, IUIService
         _playerStateMachine.ChangeState(_playerStateMachine.GetState<IdleState>());
     }
 
+    public void PauseGame()
+    {
+        _pauseUI.SetActive(true);
+        _gUI.SetActive(false);
+        Time.timeScale = 0f;
+    }
+    
+    public void ContinueGame()
+    {
+        _pauseUI.SetActive(false);
+        _gUI.SetActive(true);
+        Time.timeScale = 1f;
+    }
    
 
     public void ShowDeathUI()
@@ -71,10 +89,18 @@ public class UIManager : MonoBehaviour, IUIService
     {
         _leaderBoardUI.SetActive(true);
     }
+    
+    public void ShowSettings()
+    {
+        _settingsUI.SetActive(true);
+        _mainUI.SetActive(false);
+    }
 
     public void BackToMenu()
     {
+        _mainUI.SetActive(true);
         _leaderBoardUI.SetActive(false);
+        _settingsUI.SetActive(false);
     }
 
     public void UpdateScore(int score)
@@ -84,19 +110,12 @@ public class UIManager : MonoBehaviour, IUIService
 
     public void Logout()
     {
-        FirebaseAuthManager.Instance.Logout();
-        PlayerPrefs.DeleteKey("MaxScore");
+        _firebaseGameManager.Logout();
         SceneManager.LoadScene(_authSceneName);
-    }
-    
-    public void SettingsOn()
-    {
-        Debug.LogWarning("The settings are not implemented.");
     }
 
     public void Exit()
     {
-        PlayerPrefs.DeleteKey("MaxScore");
         Application.Quit();
     }
 

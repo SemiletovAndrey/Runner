@@ -5,10 +5,12 @@ using Firebase.Database;
 using Firebase.Auth;
 using System.Collections;
 using System.Linq;
+using System.Threading.Tasks;
 
 public class LeaderboardManager : MonoBehaviour
 {
     [Inject] private PlayerData _playerData;
+    [Inject] private PlayerModel _playerModel;
 
     [SerializeField] private TextMeshProUGUI _playerName;
     [SerializeField] private TextMeshProUGUI _playerScore;
@@ -20,13 +22,17 @@ public class LeaderboardManager : MonoBehaviour
 
     private void Start()
     {
-        _playerData.MaxScore = PlayerPrefs.GetInt("MaxScore");
-        _playerName.text = _playerData.UserName;
-        _playerScore.text = _playerData.MaxScore.ToString();
-        EventBus.OnDeathPlayer += UpdateScoreonLeaderBoard;
-
         _dataBaseRef = FirebaseDatabase.DefaultInstance.RootReference;
         _firebaseAuth = FirebaseAuth.DefaultInstance;
+        EventBus.OnRecivedMaxScore += UpdateScoreOnLeaderBoard;
+
+        StartCoroutine(LoadPlayerScore());
+        _playerName.text = _playerData.UserName;
+    }
+
+    private void OnDestroy()
+    {
+        EventBus.OnRecivedMaxScore -= UpdateScoreOnLeaderBoard;
     }
 
     public void OpenLeaderBoard()
@@ -39,10 +45,11 @@ public class LeaderboardManager : MonoBehaviour
         _leaderText.text = "";
     }
 
-    public void UpdateScoreonLeaderBoard()
+    public void UpdateScoreOnLeaderBoard()
     {
-        _playerData.MaxScore = PlayerPrefs.GetInt("MaxScore");
+        _playerData.MaxScore = _playerModel.MaxScore;
         _playerScore.text = _playerData.MaxScore.ToString();
+        Debug.Log("Update leaderboard");
         SaveScoreInDataBase();
     }
 
@@ -54,27 +61,58 @@ public class LeaderboardManager : MonoBehaviour
 
     private IEnumerator GetLeaders()
     {
-        var leaders = _dataBaseRef.Child("Leaderboard").OrderByChild("Score").GetValueAsync();
+        Task<DataSnapshot> leaders = _dataBaseRef.Child("Leaderboard").OrderByChild("Score").GetValueAsync();
 
-        yield return new WaitUntil(predicate: () => leaders.IsCompleted);
+        yield return new WaitUntil(() => leaders.IsCompleted);
 
         if (leaders.Exception != null)
         {
-            Debug.Log($" ERROR: {leaders.Exception}");
+            Debug.LogError($"ERROR: {leaders.Exception}");
         }
-        else if (leaders.Result.Value == null)
+        else if (leaders.Result?.Value == null)
         {
-            Debug.LogError($"ERROR Value == null");
+            Debug.LogError("ERROR: Value == null");
         }
         else
         {
             DataSnapshot snapshot = leaders.Result;
             int numPlayer = 1;
+
             foreach (DataSnapshot item in snapshot.Children.Reverse())
             {
-                _leaderText.text += "\n" + numPlayer + " " + item.Child("UserName").Value.ToString() + " : " + item.Child("Score").Value.ToString();
+                string userName = item.Child("UserName").Value?.ToString() ?? "Unknown";
+                string score = item.Child("Score").Value?.ToString() ?? "0";
+
+                _leaderText.text += $"\n{numPlayer}. {userName} : {score}";
                 numPlayer++;
             }
+        }
+    }
+
+    private IEnumerator LoadPlayerScore()
+    {
+        Task<DataSnapshot> user = _dataBaseRef.Child("Leaderboard").Child(_playerData.UserName).GetValueAsync();
+
+        yield return new WaitUntil(() => user.IsCompleted);
+
+        if (user.Exception != null)
+        {
+            Debug.LogError(user.Exception);
+        }
+        else if (user.Result?.Value == null)
+        {
+            Debug.Log("User not found in the leaderboard, setting score to 0");
+            _playerData.MaxScore = 0;
+            _playerScore.text = _playerData.MaxScore.ToString();
+            _playerModel.MaxScore = _playerData.MaxScore;
+        }
+        else
+        {
+            DataSnapshot snapshot = user.Result;
+            _playerData.MaxScore = int.Parse(snapshot.Child("Score").Value.ToString());
+            _playerScore.text = _playerData.MaxScore.ToString();
+            Debug.Log($"{_playerData.UserName} = score {snapshot.Child("Score").Value}");
+            _playerModel.MaxScore = _playerData.MaxScore;
         }
     }
 }

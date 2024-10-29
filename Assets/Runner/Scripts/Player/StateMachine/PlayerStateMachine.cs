@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Zenject;
 
-public class PlayerStateMachine : IPlayerStateMachine, IInitializable
+public class PlayerStateMachine : IPlayerStateMachine, IInitializable, IDisposable
 {
     private IPlayerState _currentState;
     private IPlayerState _previousState;
@@ -19,6 +19,19 @@ public class PlayerStateMachine : IPlayerStateMachine, IInitializable
         _playerStateFactory = playerStateFactory;
     }
 
+    public void Dispose()
+    {
+        EventBus.OnRestartGame -= RestartAllState;
+    }
+
+    public void Initialize()
+    {
+        InitializeStates();
+        _currentState = _playerStates[typeof(IdleState)];
+        _currentState.Enter();
+        EventBus.OnRestartGame += RestartAllState;
+    }
+
     public void InitializeStates()
     {
         _playerStates[typeof(IdleState)] = _playerStateFactory.CreateTState<IdleState>();
@@ -28,14 +41,6 @@ public class PlayerStateMachine : IPlayerStateMachine, IInitializable
         _playerStates[typeof(JumpState)] = _playerStateFactory.CreateTState<JumpState>();
         _playerStates[typeof(SlideState)] = _playerStateFactory.CreateTState<SlideState>();
         _playerStates[typeof(DeathState)] = _playerStateFactory.CreateTState<DeathState>();
-    }
-
-    public void Initialize()
-    {
-        InitializeStates();
-        _currentState = _playerStates[typeof(IdleState)];
-        _currentState.Enter();
-        EventBus.OnRestartGame += RestartAllState;
     }
 
     public void ChangeState(IPlayerState newState)

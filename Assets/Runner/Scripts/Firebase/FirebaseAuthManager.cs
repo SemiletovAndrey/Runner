@@ -7,8 +7,6 @@ using Zenject;
 
 public class FirebaseAuthManager : MonoBehaviour
 {
-    public static FirebaseAuthManager Instance { get; private set; }
-
     [Inject] private PlayerData _playerData;
 
     [Header("Firebase")]
@@ -31,22 +29,14 @@ public class FirebaseAuthManager : MonoBehaviour
     [SerializeField] private string _sceneName = "GameLevel";
     [SerializeField] private UIAuthManager _uiAuthManager;
 
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-    }
-
-
-    private void OnEnable()
+    private void Start()
     {
         StartCoroutine(CheckAndFixDependenciesAsyncCoroutine());
+    }
+
+    private void OnDestroy()
+    {
+        auth.StateChanged -= AuthStateChanged;
     }
 
     public void Login()

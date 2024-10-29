@@ -94,6 +94,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log("GameOver");
         _playerModel.MaxScore = _playerModel.CurrentScore;
         _playerStateMachine.ChangeState(_playerStateMachine.GetState<DeathState>());
+        Debug.Log($"Player Model {_playerModel.MaxScore}");
         _uiService.ShowDeathUI();
         EventBus.OnDeathPlayer?.Invoke();
     }

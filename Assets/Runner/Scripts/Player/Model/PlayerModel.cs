@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using Zenject;
 
 public class PlayerModel
 {
@@ -34,6 +35,7 @@ public class PlayerModel
             if (value > _maxScore)
             {
                 _maxScore = value;
+                EventBus.OnRecivedMaxScore?.Invoke();
             }
         }
     }
@@ -52,8 +54,7 @@ public class PlayerModel
 
         Speed = _playerConfig.DefaultSpeed;
         _startPosition = _rigidbodyPlayer.position;
-        MaxScore = PlayerPrefs.GetInt("MaxScore");
-        EventBus.OnDeathPlayer += SaveMaxScore;
+        Debug.Log($"MaxScore {MaxScore}");
     }
 
     public void UpdateSpeed()
@@ -117,12 +118,6 @@ public class PlayerModel
             UpdateTargetPosition();
             UpdatePlayerState();
         }
-    }
-
-    public void SaveMaxScore()
-    {
-        PlayerPrefs.SetInt("MaxScore", MaxScore);
-        Debug.Log($"SaveMaxScore {MaxScore}");
     }
 
     private void UpdateTargetPosition()

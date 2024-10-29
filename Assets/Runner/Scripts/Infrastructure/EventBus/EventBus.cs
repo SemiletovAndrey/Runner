@@ -7,4 +7,5 @@ public static class EventBus
 {
     public static Action OnRestartGame;
     public static Action OnDeathPlayer;
+    public static Action OnRecivedMaxScore;
 }

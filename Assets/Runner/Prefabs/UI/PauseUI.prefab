@@ -27,7 +27,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6171249204869670507}
   m_Father: {fileID: 3058318787301209191}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -63,7 +64,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6171249204869670507}
   - {fileID: 8792237826881188373}
   m_Father: {fileID: 7094316887927285413}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -180,12 +180,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3339156378539437480}
-  m_Father: {fileID: 3058318787301209191}
+  m_Father: {fileID: 8792237826881188373}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 980, y: 1820}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1427591468052801488
 CanvasRenderer:
@@ -416,7 +416,7 @@ GameObject:
   - component: {fileID: 2731681348692729790}
   - component: {fileID: 1043720689202120226}
   m_Layer: 5
-  m_Name: Pause
+  m_Name: PauseUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

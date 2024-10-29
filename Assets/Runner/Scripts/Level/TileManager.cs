@@ -33,6 +33,11 @@ public class TileManager : MonoBehaviour
         EventBus.OnRestartGame += OnRestartTileGame;
     }
 
+    private void OnDestroy()
+    {
+        EventBus.OnRestartGame -= OnRestartTileGame;
+    }
+
     private void Update()
     {
         if (_playerTransform.position.z - _distanceForDeleteTile > _zSpawn - (_numberOfTiles * _lengthTile))
@@ -56,6 +61,7 @@ public class TileManager : MonoBehaviour
     public void OnRestartTileGame()
     {
         _zSpawn = 0;
+        SpawnSafeTiles();
     }
 
     private void SpawnSafeTiles()
